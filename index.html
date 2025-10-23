@@ -42,9 +42,33 @@
                     </a>
                 </div>
                 <div class="md:hidden">
-                    <button class="text-gray-700 hover:text-blue-600">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 py-4 space-y-3">
+                <!-- Mobile Headline Version Switcher -->
+                <div class="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 rounded-lg mb-3">
+                    <span class="text-xs text-gray-500 font-medium">Headline:</span>
+                    <button onclick="switchHeadline(1)" id="mobile-v1-btn" class="mobile-version-btn active px-3 py-2 text-xs font-semibold rounded bg-blue-600 text-white">V1</button>
+                    <button onclick="switchHeadline(2)" id="mobile-v2-btn" class="mobile-version-btn px-3 py-2 text-xs font-semibold rounded bg-gray-300 text-gray-700 hover:bg-gray-400">V2</button>
+                    <button onclick="switchHeadline(3)" id="mobile-v3-btn" class="mobile-version-btn px-3 py-2 text-xs font-semibold rounded bg-gray-300 text-gray-700 hover:bg-gray-400">V3</button>
+                </div>
+                
+                <a href="#features" class="block text-gray-700 hover:text-blue-600 py-2 text-lg">Features</a>
+                <a href="#solutions" class="block text-gray-700 hover:text-blue-600 py-2 text-lg">Solutions</a>
+                <a href="#pricing" class="block text-gray-700 hover:text-blue-600 py-2 text-lg">Pricing</a>
+                <a href="#resources" class="block text-gray-700 hover:text-blue-600 py-2 text-lg">Resources</a>
+                <div class="border-t border-gray-200 pt-3 mt-3">
+                    <a href="#login" class="block text-gray-700 hover:text-blue-600 py-2 text-lg">Sign In</a>
+                    <a href="#signup" class="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-center mt-2">
+                        Get Started
+                    </a>
                 </div>
             </div>
         </div>
@@ -62,17 +86,14 @@
                     <!-- Subline content will be dynamically inserted -->
                 </p>
                 
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-4">
-                    <a href="#demo" class="bg-blue-600 text-white px-10 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 text-center font-semibold text-lg shadow-lg">
-                        Try It Free
-                    </a>
-                    <a href="#demo-video" class="bg-white text-gray-700 px-10 py-4 rounded-lg hover:bg-gray-50 transition-all border-2 border-gray-300 text-center font-semibold text-lg">
+                <!-- CTA Button -->
+                <div class="flex justify-center">
+                    <a href="#demo" class="bg-blue-600 text-white px-8 py-3 sm:px-10 sm:py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 text-center font-semibold text-lg shadow-lg">
                         Book a Demo
                     </a>
                 </div>
-                <p class="text-sm text-gray-500">No card required</p>
             </div>
+        </div>
 
             <!-- Dashboard Preview with Feature Pills -->
             <div class="relative max-w-5xl mx-auto">
@@ -81,7 +102,7 @@
                     <img src="company_overview.png" alt="Naro Company Overview Interface" class="rounded-xl w-full border border-gray-200">
                     
                     <!-- Floating Feature Pills -->
-                    <div class="absolute top-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-6 max-w-xs border border-gray-100">
+                    <div class="relative md:absolute top-0 md:top-8 left-0 md:right-8 mt-4 md:mt-0 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-4 md:p-6 max-w-full md:max-w-xs mx-auto md:mx-0 border border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-4 text-lg">Explore Naro Features</h3>
                         <div class="grid grid-cols-2 gap-3">
                             <a href="#feature-setup" class="feature-pill flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-purple-50 transition-colors cursor-pointer">
@@ -109,8 +130,8 @@
                                 <span class="text-xs font-medium text-gray-700">Engagement</span>
                             </a>
                         </div>
-                        <a href="#features" class="block mt-4 text-center text-blue-600 font-semibold text-sm hover:text-blue-700">
-                            Try It Free →
+                        <a href="#demo" class="block mt-4 text-center text-blue-600 font-semibold text-sm hover:text-blue-700">
+                            Book a Demo →
                         </a>
                     </div>
                 </div>
@@ -121,21 +142,21 @@
     <!-- Stats Section -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="stat-card bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border-2 border-blue-200 shadow-sm">
-                    <div class="text-xl font-bold text-blue-600 mb-3">Complete Strategy</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
+                <div class="stat-card bg-gradient-to-br from-blue-50 to-purple-50 p-5 md:p-6 rounded-xl border-2 border-blue-200 shadow-sm">
+                    <div class="text-lg md:text-xl font-bold text-blue-600 mb-2 md:mb-3">Complete Strategy</div>
                     <div class="text-sm text-gray-700 font-medium">In Minutes, Not Months</div>
                 </div>
-                <div class="stat-card bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl border-2 border-purple-200 shadow-sm">
-                    <div class="text-xl font-bold text-purple-600 mb-3">Research-Backed</div>
+                <div class="stat-card bg-gradient-to-br from-purple-50 to-blue-50 p-5 md:p-6 rounded-xl border-2 border-purple-200 shadow-sm">
+                    <div class="text-lg md:text-xl font-bold text-purple-600 mb-2 md:mb-3">Research-Backed</div>
                     <div class="text-sm text-gray-700 font-medium">Content with Citations</div>
                 </div>
-                <div class="stat-card bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl border-2 border-cyan-200 shadow-sm">
-                    <div class="text-xl font-bold text-cyan-600 mb-3">Multi-Channel</div>
+                <div class="stat-card bg-gradient-to-br from-cyan-50 to-blue-50 p-5 md:p-6 rounded-xl border-2 border-cyan-200 shadow-sm">
+                    <div class="text-lg md:text-xl font-bold text-cyan-600 mb-2 md:mb-3">Multi-Channel</div>
                     <div class="text-sm text-gray-700 font-medium">SEO, Social & AI Platforms</div>
                 </div>
-                <div class="stat-card bg-gradient-to-br from-green-50 to-cyan-50 p-6 rounded-xl border-2 border-green-200 shadow-sm">
-                    <div class="text-xl font-bold text-green-600 mb-3">Always Learning</div>
+                <div class="stat-card bg-gradient-to-br from-green-50 to-cyan-50 p-5 md:p-6 rounded-xl border-2 border-green-200 shadow-sm">
+                    <div class="text-lg md:text-xl font-bold text-green-600 mb-2 md:mb-3">Always Learning</div>
                     <div class="text-sm text-gray-700 font-medium">AI Improves Over Time</div>
                 </div>
             </div>
@@ -225,10 +246,9 @@
 
             <!-- CTA Button -->
             <div class="text-center mt-12">
-                <a href="#demo" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 text-center font-semibold text-lg shadow-lg">
-                    Try It Free
+                <a href="#demo" class="inline-block bg-blue-600 text-white px-8 py-3 sm:px-10 sm:py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 text-center font-semibold text-lg shadow-lg">
+                    Book a Demo
                 </a>
-                <p class="text-sm text-gray-500 mt-4">No card required</p>
             </div>
         </div>
     </section>
@@ -244,7 +264,7 @@
                     Naro simplifies every step, so your team can focus on improving performance – not process.
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-12">
                 <!-- Setup & Intelligence Card -->
                 <div id="feature-setup" class="feature-card bg-purple-50 p-8 rounded-2xl hover:shadow-lg transition-all scroll-mt-20">
                     <div class="mb-6">
@@ -440,7 +460,7 @@
             
             <!-- Explore Platform Button -->
             <div class="text-center">
-                <a href="#" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 text-center font-semibold text-lg shadow-lg">
+                <a href="#" class="inline-block bg-blue-600 text-white px-8 py-3 sm:px-10 sm:py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 text-center font-semibold text-lg shadow-lg">
                     Explore the platform
                 </a>
             </div>
@@ -475,7 +495,7 @@
                     What Our Customers Say
                 </h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
                     <div class="flex items-center gap-1 mb-4">
                         <i class="fas fa-star text-yellow-300"></i>
@@ -547,10 +567,10 @@
                 Join 10,000+ teams already using Naro to drive growth and scale their content.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#signup" class="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 text-center font-semibold shadow-lg">
+                <a href="#signup" class="bg-blue-600 text-white px-8 py-3 sm:px-8 sm:py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 text-center font-semibold shadow-lg">
                     Start Your Free Trial
                 </a>
-                <a href="#contact" class="bg-white text-gray-700 px-8 py-4 rounded-lg hover:bg-gray-50 transition-all border-2 border-gray-200 text-center font-semibold">
+                <a href="#contact" class="bg-white text-gray-700 px-8 py-3 sm:px-8 sm:py-4 rounded-lg hover:bg-gray-50 transition-all border-2 border-gray-200 text-center font-semibold">
                     Talk to Sales
                 </a>
             </div>
@@ -563,7 +583,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-8">
                 <div>
                     <div class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
                         Naro
@@ -683,13 +703,27 @@
             document.getElementById('main-headline').innerHTML = config.headline;
             document.getElementById('main-subline').innerHTML = config.subline;
             
-            // Update button states
+            // Update desktop button states
             document.querySelectorAll('.version-btn').forEach(btn => {
                 btn.classList.remove('active', 'bg-blue-600', 'text-white');
                 btn.classList.add('bg-gray-300', 'text-gray-700');
             });
-            document.getElementById(`v${version}-btn`).classList.remove('bg-gray-300', 'text-gray-700');
-            document.getElementById(`v${version}-btn`).classList.add('active', 'bg-blue-600', 'text-white');
+            const desktopBtn = document.getElementById(`v${version}-btn`);
+            if (desktopBtn) {
+                desktopBtn.classList.remove('bg-gray-300', 'text-gray-700');
+                desktopBtn.classList.add('active', 'bg-blue-600', 'text-white');
+            }
+            
+            // Update mobile button states
+            document.querySelectorAll('.mobile-version-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-300', 'text-gray-700');
+            });
+            const mobileBtn = document.getElementById(`mobile-v${version}-btn`);
+            if (mobileBtn) {
+                mobileBtn.classList.remove('bg-gray-300', 'text-gray-700');
+                mobileBtn.classList.add('active', 'bg-blue-600', 'text-white');
+            }
             
             // Clear existing typing animation
             if (typingInterval) {
@@ -706,9 +740,42 @@
             }
         }
 
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuButton.querySelector('i').classList.remove('fa-bars');
+                menuButton.querySelector('i').classList.add('fa-times');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuButton.querySelector('i').classList.remove('fa-times');
+                menuButton.querySelector('i').classList.add('fa-bars');
+            }
+        }
+        
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             switchHeadline(1); // Start with version 1
+            
+            // Mobile menu button click handler
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            }
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
         });
 
         // Smooth scrolling for anchor links
