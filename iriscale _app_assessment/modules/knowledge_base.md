@@ -281,6 +281,157 @@ When clicking a source, shows extracted data from that specific source:
 
 ---
 
+---
+
+## Internal Section (NEW - January 2026)
+
+The **Internal** section is a newly added area within the Knowledge Base left panel, located below the Competitors section. Its purpose is to store company documents and collateral that AI agents on the platform will use to create on-brand content.
+
+### Location in UI
+
+```
+Company & Competitors Information (Left Panel)
+├── Company Overview (3 sources)
+├── Competitors (6 items)
+└── Internal (2 items) ← NEW SECTION
+    ├── Brand Voice & Writing Guidelines
+    └── Branding Guidelines
+```
+
+### Purpose
+
+The Internal section allows users to:
+- Store documents and collateral for future campaign planning
+- Maintain brand consistency across all AI-generated content
+- Edit and update guidelines as the company evolves
+
+### Add Internal Source
+
+| Element | Description |
+|---------|-------------|
+| Button | "Add Internal Source" (purple, primary action) |
+| Function | Allows users to add additional internal documents |
+
+---
+
+### Internal Document: Branding Guidelines
+
+**Auto-generated** from the company's website and other assets.
+
+| Attribute | Details |
+|-----------|---------|
+| Title | Branding Guidelines |
+| Tags | Branding, Brand Identity, Visual Assets |
+| Editable | ✅ Yes - via Edit button |
+| Preview Mode | Default view shows formatted content |
+
+#### Content Sections
+
+| Section | Description |
+|---------|-------------|
+| **Brand Overview** | Company name, description, overall brand identity |
+| **Color Palette** | Primary, accent, background, text, and link colors with hex codes |
+| **Typography** | Font families (primary, heading), font stacks, font sizes (H1, H2, Body) |
+| **Visual Assets** | Logo, Favicon, Open Graph Image (with actual images displayed) |
+| **Design System** | Base spacing unit, border radius, component styling (inputs) |
+| **Technical Details** | Frameworks, metadata (Twitter Card, viewport, OG tags, etc.) |
+
+#### Example Data (Shuk Rentals)
+
+| Element | Value |
+|---------|-------|
+| Primary Color | `#15B8A6` |
+| Accent Color | `#0000EE` |
+| Primary Font | Athletics |
+| H1 Size | 64px |
+| Border Radius | 16px |
+
+#### Usage by Platform
+
+- Used by **AI agents** to ensure all generated content and collateral assets match the company's brand
+- Informs visual styling for any AI-created materials
+
+---
+
+### Internal Document: Brand Voice & Writing Guidelines
+
+**Auto-generated** to provide writing guidance for on-brand content creation.
+
+| Attribute | Details |
+|-----------|---------|
+| Title | Writer's Quick Reference Guide |
+| Tags | Brand Voice, Writing Guidelines, Style Guide, Content Strategy |
+| Editable | ✅ Yes - via Edit button |
+| Preview Mode | Default view shows formatted content |
+
+#### Content Sections
+
+| Section | Description |
+|---------|-------------|
+| **Core Voice Pillars** | Table with pillars, meanings, and example phrases |
+| **Voice Personality** | "Sounds like" vs "Does NOT sound like" examples |
+| **Tone by Context** | Content type, tone, formality level, and notes |
+| **Format Specs** | Word counts, emoji usage, and guidelines per content type |
+| **Before/After Examples** | Transformation examples showing voice application |
+| **Common Mistakes to Avoid** | List of writing pitfalls |
+| **Pre-Publish Checklist** | 10-point quality checklist |
+
+#### Core Voice Pillars (Shuk Example)
+
+| Pillar | What it means |
+|--------|---------------|
+| Practical playbooks | Steps, checklists, clear definitions |
+| Predictability-first | Reduce uncertainty, set expectations early |
+| Transparent and proof-backed | Clear about fees/limits, support claims with proof |
+| Calmly confident | Measured certainty, no hype or panic |
+| Fair-minded | Avoid stereotypes, keep disputes neutral |
+
+#### Tone by Context Table
+
+| Content Type | Tone | Formality |
+|--------------|------|-----------|
+| Website marketing | Confident, benefit-led | Medium |
+| Blog/guides | Practical, instructional | Medium-High |
+| Marketing email | Value-first | Medium |
+| Support reply | Empathetic, action-led | Medium |
+| Social | Educational, light humor OK | Low-Medium |
+
+#### Format Specs by Content Type
+
+| Format | Length | Emoji | Notes |
+|--------|--------|-------|-------|
+| Long blog | 1,200–2,500 words | 0 | One CTA; transparent tradeoffs |
+| Marketing email | 100–200 words | 0 | Value-first subject line |
+| Transactional email | 40–120 words | 0 | Confirm action + next step |
+| Product UI | As short as possible | 0 | Verb + object buttons |
+| Social | 20–80 words | 2–4 | Educational + proof |
+
+#### Usage by Platform
+
+- Used by **writing agents** to ensure all output meets customer requirements for style, voice, and tone
+- Ensures consistency across articles, social posts, emails, and other written content
+
+---
+
+### Edit Workflow for Internal Documents
+
+1. Click on document in Internal section list
+2. Document opens in side panel with Preview/Edit toggle
+3. Click **Edit** button to enter edit mode
+4. Make changes directly in the editor
+5. Changes are saved and used by AI agents going forward
+
+### Value Propositions
+
+| For User | Benefit |
+|----------|---------|
+| **Brand consistency** | All AI-generated content follows company guidelines |
+| **Time savings** | Guidelines auto-generated from existing assets |
+| **Flexibility** | Edit and update as brand evolves |
+| **Quality control** | Writing agents follow defined voice and style |
+
+---
+
 ## Assessment Status
 
 | Item | Complete |
@@ -291,10 +442,13 @@ When clicking a source, shows extracted data from that specific source:
 | Data structure documented | ✅ |
 | Screenshots taken | ✅ |
 | User workflow mapped | ✅ |
+| **Internal section documented** | ✅ |
+| **Branding Guidelines documented** | ✅ |
+| **Brand Voice Guidelines documented** | ✅ |
 
 ---
 
 *Assessed by: Cascade*  
-*Date: January 17, 2026*  
-*Version: 1.0*  
+*Date: January 28, 2026*  
+*Version: 1.1*  
 *Context: Shuk Rentals → Shuk GTM v0.2*

@@ -1,36 +1,39 @@
-# Topics
+# Topic Strategy (formerly Topics)
 
 > **Status:** ✅ Documented  
-> **Last Updated:** 2026-01-17  
+> **Last Updated:** 2026-01-29  
 > **URL Pattern:** `/projects/{id}/topic`
-> **Note:** Feature requires topic data; returned 404 on Shuk Rentals (no topics generated), works on Iriscale GTM v0.3
+> **Menu Name:** Topic Strategy (renamed from Topics)
+> **Note:** Feature shows empty state with Core Idea input when no topics exist; populated state with topic table when topics generated
 
 ---
 
 ## Overview
 
-Topics is a content ideation and topic management feature that generates sub-topics from various sources (URLs, text). Topics are organized hierarchically with main topics and sub-topics, each categorized by funnel stage (TOFU, MOFU, BOFU, MIDF) and tracked through an approval workflow.
+**Topic Strategy** is a content ideation and topic management feature that generates full-funnel topic plans from a single core idea. Topics are organized hierarchically with cluster topics and article topics, each categorized by funnel stage (TOFU, MOFU, BOFU, MIDF) and tracked through an approval workflow.
+
+**New tagline:** "Turn a single idea into a full-funnel topic system for discovery, conversion, and growth."
 
 ---
 
-## Page Layout
+## Page Layout (Updated January 2026)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ Header: Org/Project Selector                                            │
 ├─────────────┬───────────────────────────────────────────────────────────┤
-│             │ Topic                                                     │
-│             │ Generate topics, create content, publish, win             │
+│             │ Topic Strategy                                            │
+│             │ Turn a single idea into a full-funnel topic system...     │
 │   Sidebar   ├───────────────────────────────────────────────────────────┤
 │             │ ┌─────────────┬─────────────────────────────────────────┐ │
-│             │ │ SOURCES     │ [Search by topic]  [Reset] [Columns]    │ │
+│             │ │ CORE IDEAS  │ [Search by topic]  [Reset] [Columns]    │ │
 │             │ │ [Collapse]  ├─────────────────────────────────────────┤ │
-│             │ │             │ Sub Topic | Overview | Main | Type |... │ │
-│             │ │ Source 1    │ ───────────────────────────────────────  │ │
-│             │ │ [COMPLETED] │ Row 1: Centralized Control and Insights │ │
+│             │ │             │ Article Topic | Brief | Cluster | ...   │ │
+│             │ │ Core Idea 1 │ ───────────────────────────────────────  │ │
+│             │ │ [clickable] │ Row 1: Centralized Control and Insights │ │
 │             │ ├─────────────┤ Row 2: Improved Collaboration...        │ │
 │             │ │ ACTIONS     │ Row 3: The Problem of Data Silos        │ │
-│             │ │ [Topic Gen] │ Row 4: Bridging the Gaps...              │ │
+│             │ │ [Add Core]  │ Row 4: Bridging the Gaps...              │ │
 │             │ │ [Approve]   │ ...                                      │ │
 │             │ │ [Reject]    │ Total results: 10                        │ │
 │             │ │ [Create...] │                                          │ │
@@ -40,44 +43,44 @@ Topics is a content ideation and topic management feature that generates sub-top
 
 ---
 
-## UI Components
+## UI Components (Updated January 2026)
 
-### Sources Panel
+### Core Ideas Panel (NEW - replaces Sources Panel)
 | Element | Description |
 |---------|-------------|
-| **Collapse Panel** | Toggle sources visibility |
-| **Source List** | URLs/text used for topic generation |
-| **Status Badge** | COMPLETED / PROCESSING |
+| **Collapse Panel** | Toggle Core Ideas visibility |
+| **Core Ideas List** | List of core ideas used to generate topics |
+| **Add Core Idea to Generate Topics** | Primary CTA button (purple) |
+
+### Core Idea Input Modal (NEW)
+| Element | Description |
+|---------|-------------|
+| **Modal Title** | "Core Idea Model" |
+| **Heading** | "Turn One Idea Into a Full-Funnel Topic Plan" |
+| **Description** | "Enter a single concept, problem, or theme. Iriscale will generate coordinated top-, middle-, and bottom-of-funnel topics that educate, convert, and support buyers." |
+| **Features** | ✦ Full-funnel coverage, ✦ Audience aware prompts |
+| **Core Idea Input** | Text field with 360 character limit |
+| **Helper Text** | "We'll seed your topic funnel with this description." |
+| **Cancel Button** | Close modal without action |
+| **Generate Topics Button** | Submit core idea to generate topics |
 
 ### Actions Panel
 | Element | Description |
 |---------|-------------|
-| **Topic Generation** | Generate topics from source |
-| **Approve** | Approve selected topics |
-| **Reject** | Reject selected topics |
-| **Create Article** | Generate article from topic |
-| **Create GEO content** | Generate geo-targeted content |
-| **Create Social Post** | Generate social post from topic |
+| **Add Core Idea** | Opens Core Idea input modal |
+| **Approve** | Approve selected topics (disabled when none selected) |
+| **Reject** | Reject selected topics (disabled when none selected) |
+| **Create Article from Topic** | Generate article from selected topic |
 
-### Add New Source
-| Element | Description |
-|---------|-------------|
-| **Source Input** | Text box for URL or text |
-| **Generate Source** | Process source for topics |
-| **Cancel** | Cancel source addition |
-
-### Data Table Columns
-| Column | Sortable | Description |
-|--------|----------|-------------|
-| **Sub Topic** | ✅ | Topic title with checkbox |
-| **Sub Topic Overview** | ❌ | Brief description |
-| **Main Topic** | ✅ | Parent topic category |
-| **Type** | ✅ | Funnel stage (TOFU/MOFU/BOFU/MIDF) |
-| **Topic Status** | ✅ | Review / Approved |
-| **Article Status** | ❌ | Article creation status |
-| **Topic Sources** | ❌ | Source count link |
-| **Sub-Topic Sources** | ❌ | Sub-source count |
-| **Related Data** | ❌ | Related items count |
+### Data Table Columns (Renamed January 2026)
+| Column | Old Name | Sortable | Description |
+|--------|----------|----------|-------------|
+| **Article Topic** | Sub Topic | ✅ | Topic title with checkbox |
+| **Article Brief** | Sub Topic Overview | ❌ | Brief description of the topic |
+| **Cluster Topic** | Main Topic | ✅ | Parent topic category/cluster |
+| **Funnel Stage** | Type | ✅ | Funnel stage (TOFU/MOFU/BOFU/MIDF) |
+| **Topic Status** | - | ✅ | Review / Approved |
+| **Article Status** | - | ✅ | Not generated / Generated |
 
 ---
 
@@ -94,20 +97,20 @@ Topics is a content ideation and topic management feature that generates sub-top
 
 ## Example Data (Iriscale GTM v0.3)
 
-### Source: "Why most marketing teams start from zero every day"
+### Core Idea: "Why most marketing teams start from zero every day"
 
-| Sub Topic | Main Topic | Type | Status |
-|-----------|------------|------|--------|
-| Centralized Control and Insights | Benefits of Unified Marketing Systems | BOFU | Review |
-| Improved Collaboration and Efficiency | Benefits of Unified Marketing Systems | BOFU | Review |
-| The Problem of Data Silos | Data Silos and their Effects | TOFU | Review |
-| Bridging the Gaps with Unified Dashboards | Data Silos and their Effects | TOFU | Review |
-| Structured Content Workflows | Enhancing Content Production Efficiency | MIDF | Review |
-| Leveraging Technology | Enhancing Content Production Efficiency | MIDF | Review |
-| The Revenue Gap | Marketing and Sales Silos | TOFU | Review |
-| Implementing Shared Goals and Metrics | Marketing and Sales Silos | TOFU | Review |
-| Routine Tasks as Productivity Sinkholes | Time Wastage from Routine Manual Tasks | TOFU | Review |
-| The Role of Automation | Time Wastage from Routine Manual Tasks | TOFU | Review |
+| Article Topic | Cluster Topic | Funnel Stage | Topic Status | Article Status |
+|---------------|---------------|--------------|--------------|----------------|
+| Centralized Control and Insights | Benefits of Unified Marketing Systems | BOFU | Review | Not generated |
+| Improved Collaboration and Efficiency | Benefits of Unified Marketing Systems | BOFU | Review | Not generated |
+| The Problem of Data Silos | Data Silos and their Effects | TOFU | Review | Not generated |
+| Bridging the Gaps with Unified Dashboards | Data Silos and their Effects | TOFU | Review | Not generated |
+| Structured Content Workflows | Enhancing Content Production Efficiency | MIDF | Review | Not generated |
+| Leveraging Technology | Enhancing Content Production Efficiency | MIDF | Review | Not generated |
+| The Revenue Gap | Marketing and Sales Silos | TOFU | Review | Not generated |
+| Implementing Shared Goals and Metrics | Marketing and Sales Silos | TOFU | Review | Not generated |
+| Routine Tasks as Productivity Sinkholes | Time Wastage from Routine Manual Tasks | TOFU | Review | Not generated |
+| The Role of Automation | Time Wastage from Routine Manual Tasks | TOFU | Review | Not generated |
 
 **Total Topics:** 10
 
@@ -117,12 +120,12 @@ Topics is a content ideation and topic management feature that generates sub-top
 
 | Capability | Description |
 |------------|-------------|
-| **Source-Based Generation** | Generate topics from URLs or text |
-| **Hierarchical Organization** | Main topics with sub-topics |
+| **Core Idea Generation** | Generate full-funnel topics from a single concept (NEW) |
+| **Hierarchical Organization** | Cluster topics with article topics |
 | **Funnel Stage Categorization** | TOFU/MOFU/BOFU/MIDF classification |
-| **Multi-Content Creation** | Articles, GEO content, Social posts |
+| **Full-Funnel Coverage** | Coordinated top-, middle-, and bottom-funnel topics |
 | **Approval Workflow** | Review → Approved pipeline |
-| **Related Data Links** | Connected sources and data |
+| **Article Creation** | Create articles directly from approved topics |
 
 ---
 

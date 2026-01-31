@@ -130,12 +130,81 @@ Tag each documented feature for intended use:
 
 | Phase | Status | Notes |
 |-------|--------|-------|
-| Phase 1: Discovery | ⬜ Not Started | Awaiting app access |
-| Phase 2: Documentation | ⬜ Not Started | |
-| Phase 3: Content Tagging | ⬜ Not Started | |
-| Deliverables Creation | ⬜ Not Started | |
+| Phase 1: Discovery | ✅ Complete | App access via MCP Playwright |
+| Phase 2: Documentation | ✅ In Progress | 22 features documented |
+| Phase 3: Content Tagging | ✅ In Progress | Tags applied to all documented features |
+| Deliverables Creation | ⬜ In Progress | Training, video, marketing materials ongoing |
+
+---
+
+## Recent Assessment Updates
+
+### January 28, 2026 - Internal Section Assessment
+**New features documented in Knowledge Base module:**
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Internal Section | ✅ Documented | New section in Knowledge Base left panel |
+| Branding Guidelines | ✅ Documented | Auto-generated, editable brand identity doc |
+| Brand Voice & Writing Guidelines | ✅ Documented | Auto-generated writing style guide |
+
+**Competitors Section:** Verified as existing feature (6 competitor URLs, Add Competitor button)
+
+### January 28, 2026 - Competitor Analysis Update
+**New sections added to Competitor Analysis documents:**
+
+| Section | Status | Notes |
+|---------|--------|-------|
+| Section 8: Competitive Sales Battle Card | ✅ Documented | 10 subsections for sales enablement |
+| Section 9: Cooperation & Partnership Analysis | ✅ Documented | 6 subsections for partnership strategy |
+
+**Battle Card subsections:** Positioning, Fit Signals, Differentiators, Objection Handling, Trap Questions, Switching Narrative, Proof Points, Landmines, Close Paths, Internal Intelligence
+
+**Partnership subsections:** Feasibility Assessment, Opportunity Zones, Partnership Models, Risk/Upside, Signals to Monitor, Recommended Stance
+
+### January 29, 2026 - Topic Strategy UI Update
+**Feature renamed and UI overhauled:**
+
+| Change | Old | New |
+|--------|-----|-----|
+| Feature Name | Topics | Topic Strategy |
+| Menu Label | Topics | Topic Strategy |
+| Left Panel | Sources | Core Ideas |
+| Input Method | URL/Text source | Core Idea description |
+| Column: Sub Topic | Sub Topic | Article Topic |
+| Column: Sub Topic Overview | Sub Topic Overview | Article Brief |
+| Column: Main Topic | Main Topic | Cluster Topic |
+| Column: Type | Type | Funnel Stage |
+
+**New Core Idea Modal:**
+- Title: "Turn One Idea Into a Full-Funnel Topic Plan"
+- Features: Full-funnel coverage, Audience aware prompts
+- Input: 360 character text field for describing core concept
+- Actions: Cancel, Generate Topics
+
+### January 30, 2026 - Opportunity Agent: Blog Article Recommendations
+**New feature added to Opportunity Details page:**
+
+| Component | Description |
+|-----------|-------------|
+| **Location** | Opportunity Details page, within AI Analysis & Insights section |
+| **Purpose** | Generate timely blog/article ideas from real-time social conversations |
+
+**Blog Article Recommendation Fields:**
+
+| Field | Description |
+|-------|-------------|
+| Topic | AI-generated article title |
+| Target Audience | Who the article should address |
+| Primary Problem | Core issue the article should solve |
+| Key Takeaways | Main points readers should learn |
+| Suggested Sections | Recommended article structure |
+| Evidence from Post | Quote supporting the recommendation |
+| Company Expertise Angle | How to position company expertise |
+
+**Customer Value:** Helps customers find content ideas based on what their potential customers are actively discussing on social platforms like Reddit.
 
 ---
 
 *Document Created: January 17, 2026*
-*Last Updated: January 17, 2026*
+*Last Updated: January 30, 2026*

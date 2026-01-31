@@ -29,15 +29,21 @@
 | # | Screen/Feature | Location/Path | Documented | Screenshots | Training | Video | Marketing | Promo |
 |---|----------------|---------------|------------|-------------|----------|-------|-----------|-------|
 | 7 | Knowledge Base | `/projects/{id}/manage` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 7a | Knowledge Base - Internal Section | `/projects/{id}/manage` (left panel) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| 7b | Branding Guidelines | `/projects/{id}/manage` (Internal) | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
+| 7c | Brand Voice & Writing Guidelines | `/projects/{id}/manage` (Internal) | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
 | 8 | Keyword Repository | `/projects/{id}/keywords` | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ |
 | 9 | Search Ranking | `/projects/{id}/search-ranking` | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ |
 | 10 | Competitor Analysis | `/projects/{id}/competitor-analysis` | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| 10a | Competitor Analysis - Battle Card (Section 8) | `/projects/{id}/competitor-analysis` | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
+| 10b | Competitor Analysis - Partnership (Section 9) | `/projects/{id}/competitor-analysis` | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
 | 11 | Content Architecture | `/projects/{id}/content-architecture` | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ |
-| 12 | Topics | `/projects/{id}/topic` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| 12 | Topic Strategy (was Topics) | `/projects/{id}/topic` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | 13 | AI Optimization Questions | `/projects/{id}/ai-optimizations` | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ |
 | 14 | Articles | `/projects/{id}/articles` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | 15 | AI Optimization Answers | `/projects/{id}/aio-answers` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | 16 | Opportunity Agent | `/projects/{id}/opportunity-agent` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| 16a | Blog Article Recommendations | `/projects/{id}/opportunities/{id}` | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
 | 17 | Social Posts | `/projects/{id}/socials` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | 18 | Social Scheduler | `/social-scheduler` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | 19 | Connections | `/connections` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
@@ -64,6 +70,12 @@
 │   ├── Feature Exploration (home)
 │   ├── INTELLIGENCE & RESEARCH
 │   │   ├── Knowledge Base
+│   │   │   └── Company & Competitors Information (Left Panel)
+│   │   │       ├── Company Overview (sources)
+│   │   │       ├── Competitors (competitor URLs)
+│   │   │       └── Internal (NEW - Jan 2026)
+│   │   │           ├── Branding Guidelines
+│   │   │           └── Brand Voice & Writing Guidelines
 │   │   ├── Keyword Repository
 │   │   ├── Search Ranking
 │   │   └── Competitor Analysis
@@ -92,12 +104,12 @@
 
 | Metric | Count | Total | % |
 |--------|-------|-------|---|
-| Screens Documented | 4 | ~16 | 25% |
-| Screenshots Captured | 6 | ~16 | 38% |
-| Training Content Ready | 4 | ~16 | 25% |
-| Video Scripts Ready | 1 | ~16 | 6% |
-| Marketing Copy Ready | 3 | ~16 | 19% |
-| Promo Material Ready | 0 | ~16 | 0% |
+| Screens Documented | 22 | ~22 | 100% |
+| Screenshots Captured | 19 | ~22 | 86% |
+| Training Content Ready | 19 | ~22 | 86% |
+| Video Scripts Ready | 7 | ~22 | 32% |
+| Marketing Copy Ready | 13 | ~22 | 59% |
+| Promo Material Ready | 1 | ~22 | 5% |
 
 ---
 
@@ -133,11 +145,29 @@ Can be documented after initial release:
 3. 
 
 ### Decisions Made
-- 
+- Internal section added to Knowledge Base (Jan 2026)
+- Branding Guidelines and Brand Voice Guidelines are auto-generated and editable
 
 ### Blockers
 - 
 
+### Recent Updates (January 28-29, 2026)
+- Added Internal section documentation (3 new sub-features)
+- Updated navigation structure to reflect Knowledge Base hierarchy
+- Competitors section confirmed as existing feature (6 competitor URLs)
+- **Competitor Analysis updated** with 2 new sections:
+  - Section 8: Competitive Sales Battle Card (10 subsections)
+  - Section 9: Cooperation & Partnership Analysis (6 subsections)
+- **Topic Strategy UI overhaul** (January 29, 2026):
+  - Feature renamed from "Topics" to "Topic Strategy"
+  - New "Core Ideas" panel replaces "Sources" panel
+  - New Core Idea input modal with full-funnel generation
+  - Column names updated (Sub Topic → Article Topic, Main Topic → Cluster Topic, etc.)
+- **Opportunity Agent - Blog Article Recommendations** (January 30, 2026):
+  - New section in Opportunity Details page
+  - AI-generates blog/article ideas from real-time social conversations
+  - Includes: Topic, Target Audience, Primary Problem, Key Takeaways, Suggested Sections, Evidence, Company Expertise Angle
+
 ---
 
-*Last Updated:*
+*Last Updated: January 30, 2026*

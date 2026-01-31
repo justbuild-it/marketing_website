@@ -1,7 +1,7 @@
 # Competitor Analysis
 
 > **Status:** ✅ Documented  
-> **Last Updated:** 2026-01-17  
+> **Last Updated:** 2026-01-28  
 > **URL Pattern:** `/projects/{id}/competitor-analysis`
 
 ---
@@ -80,7 +80,13 @@ Competitor Analysis provides deep, AI-generated competitive intelligence reports
 | **1. Overall Summary** | 📊 | High-level strategic comparison |
 | **2. Positioning Gap Analysis** | 🎯 | Market positioning differences |
 | **3. Product & Services Feature Matrix** | 🛠️ | Detailed feature-by-feature comparison |
-| **4. Additional Sections** | Various | Pricing, audience, opportunities, etc. |
+| **4. Target Audience Analysis** | 👥 | Audience comparison and opportunities |
+| **5. Pricing & Business Model** | 💰 | Pricing strategy comparison |
+| **6. Strengths & Weaknesses** | ⚖️ | SWOT-style analysis |
+| **7. Strategic Opportunities** | 🚀 | Growth and differentiation opportunities |
+| **8. Competitive Sales Battle Card** | 🥊 | Sales-focused competitive intelligence (NEW) |
+| **9. Cooperation & Partnership Analysis** | 🤝 | Partnership feasibility and strategy (NEW) |
+| **Key Takeaways** | 🎯 | Summary recommendations |
 
 ---
 
@@ -217,6 +223,8 @@ Competitor Analysis provides deep, AI-generated competitive intelligence reports
 | **Editable Content** | Full markdown editing with auto-save |
 | **Multiple Competitors** | Manage analyses for all competitors |
 | **AI Agent Integration** | Feeds competitive campaigns and workflows |
+| **Sales Battle Cards** | Actionable competitive intelligence for sales teams (NEW) |
+| **Partnership Analysis** | Strategic cooperation/partnership recommendations (NEW) |
 
 ---
 
@@ -281,6 +289,80 @@ AI agents access competitor data → Create competitive campaigns
 7. **Version History** - Track document revisions
 8. **Comments** - Add notes and annotations
 9. **Custom Sections** - Add custom analysis sections
+
+---
+
+---
+
+## New Sections (January 2026 Update)
+
+### Section 8: 🥊 Competitive Sales Battle Card
+
+A comprehensive sales enablement resource designed to help sales teams compete directly against specific competitors.
+
+#### Purpose
+Provides actionable competitive intelligence for sales conversations, objection handling, and deal positioning when directly competing for business.
+
+#### Subsections
+
+| Subsection | Description |
+|------------|-------------|
+| **8.1 One-Sentence Competitive Positioning** | Quick positioning statement for sales conversations |
+| **8.2 Ideal & Poor Fit Signals** | Indicators of when prospect is good/bad fit vs competitor |
+| **8.3 Top 3 Sales-Critical Differentiators** | Key differentiators to emphasize in sales |
+| **8.4 Common Competitor Claims & Recommended Responses** | Objection handling guide with specific rebuttals |
+| **8.5 Trap Questions for Sales Discovery** | Questions to uncover prospect pain points competitor can't solve |
+| **8.6 Switching Narrative & Risk Reduction** | How to position switching and reduce perceived risk |
+| **8.7 Proof to Use Against This Competitor** | Specific proof points, testimonials, and data |
+| **8.8 Landmines to Avoid** | Topics/claims to avoid that favor competitor |
+| **8.9 Recommended Close Paths** | Suggested closing strategies for competitive deals |
+| **8.10 Internal Sales Intelligence** | Non-customer-facing competitive insights for sales team |
+
+#### Value for Sales Teams
+
+| Use Case | Benefit |
+|----------|---------|
+| **Discovery calls** | Trap questions reveal competitor weaknesses |
+| **Objection handling** | Pre-built responses to common competitor claims |
+| **Positioning** | Clear differentiation talking points |
+| **Closing** | Recommended paths based on competitive dynamics |
+| **Internal prep** | Intelligence not shared with prospects |
+
+---
+
+### Section 9: 🤝 Cooperation & Partnership Analysis
+
+Strategic analysis of potential cooperation or partnership opportunities with the competitor.
+
+#### Purpose
+Evaluates whether formal or informal partnership with the competitor could benefit both parties, and recommends a strategic stance.
+
+#### Subsections
+
+| Subsection | Description |
+|------------|-------------|
+| **9.1 Cooperation Feasibility Assessment** | Analysis of whether partnership makes strategic sense |
+| **9.2 Partnership Opportunity Zones** | Areas where cooperation could create mutual value |
+| **9.3 Viable Partnership Models** | Specific partnership structures with feasibility ratings |
+| **9.4 Strategic Upside vs Strategic Risk** | Benefits and risks of partnership |
+| **9.5 Signals to Monitor Before Partnering** | Positive and negative indicators for partnership timing |
+| **9.6 Recommended Strategic Stance & Next Steps** | Final recommendation and action items |
+
+#### Partnership Models Evaluated
+
+| Model | Description | Typical Feasibility |
+|-------|-------------|---------------------|
+| **Referral Partnership** | Mutual customer referrals | Medium |
+| **API Integration** | Technical connection between platforms | Low-Medium |
+| **Co-branded Education** | Joint webinars/content | Low |
+| **White-label Features** | One powers features for the other | High complexity |
+
+#### Strategic Outputs
+
+- **Recommended Stance:** Clear recommendation (partner, avoid, monitor)
+- **Rationale:** Strategic reasoning for the recommendation
+- **Next Steps:** Specific actions to take
+- **Tactical Approach:** How to position against/with competitor
 
 ---
 
