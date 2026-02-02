@@ -13,7 +13,7 @@
 
 **Subject:** Your AI content just got more on-brand (+ a fix for content idea block)
 
-**Preview text:** New Brand Guidelines, Writing Guidelines, and Blog Article Recommendations—all AI-powered.
+**Preview text:** New Brand Guidelines, Writing Guidelines, Topic Strategy, and Blog Article Recommendations—all AI-powered.
 
 ---
 
@@ -80,6 +80,37 @@ Not every competitor is just a competitor. This new section identifies potential
 
 ---
 
+### 🎯 One idea. An entire content strategy.
+
+**Topic Strategy** (NEW)
+
+Ever stare at a blank screen wondering what to write about next? That ends today.
+
+Our new Topic Strategy feature turns a single core idea into a complete, full-funnel topic plan—automatically. Enter one concept, problem, or theme, and Iriscale generates coordinated topics across your entire buyer journey:
+
+- **TOFU (Top of Funnel)** — Awareness content to attract new audiences
+- **MOFU (Middle of Funnel)** — Consideration content to nurture interest
+- **BOFU (Bottom of Funnel)** — Decision content to close deals
+
+**Each topic includes:**
+- Article topic and brief
+- Cluster organization for content architecture
+- Funnel stage classification
+- One-click article creation when you're ready to write
+- Approve and AI agent automatically finds best location on your website it
+
+**Why this matters:**
+- **Strategic coverage** — No more gaps in your content funnel
+- **Instant planning** — Skip weeks of brainstorming and spreadsheet wrangling
+- **Coordinated messaging** — Topics designed to work together across the buyer journey
+- **Faster execution** — Go from idea to approved topic to published article in one workflow
+
+**Where to find it:** Topic Strategy (in your left sidebar—formerly called "Topics")
+
+**[Build Your Topic Strategy →]**
+
+---
+
 ### Make them yours
 
 Brand guidelines are fully editable—refine them as your brand evolves. Blog article recommendations can be sent directly to your Articles feature to start drafting.
@@ -94,6 +125,7 @@ Questions? Reply to this email or reach out to our support team.
 
 - **Primary CTA Button:** Link to `/projects/{id}/manage` with Internal section expanded
 - **Secondary CTA Button:** Link to `/projects/{id}/opportunity-agent`
+- **Topic Strategy CTA Button:** Link to `/projects/{id}/topic`
 - **Timing:** Send to all active users who have at least one project with company sources added
 - **Segment consideration:** 
   - Users who haven't added company sources yet could receive a variant encouraging them to set up their Knowledge Base first
