@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Marketing Scorecard — Quiz | IriScale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        iris: {
+                            50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+                            400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+                            800: '#3730a3', 900: '#312e81', 950: '#1e1b4b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4338ca 60%, #4f46e5 100%);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .option-card {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .option-card:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        .option-card.selected {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+        }
+        .progress-fill {
+            transition: width 0.5s ease;
+        }
+        .slide-enter {
+            animation: slideIn 0.3s ease forwards;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .fade-out {
+            animation: fadeOut 0.2s ease forwards;
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(-30px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-iris-500 to-iris-700 flex items-center justify-center">
+                    <span class="text-sm font-bold">IS</span>
+                </div>
+                <span class="font-semibold text-white">IriScale</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <span id="progressLabel" class="text-sm text-gray-400">Question 1 of 16</span>
+                <div class="w-32 h-2 bg-gray-800 rounded-full overflow-hidden">
+                    <div id="progressBar" class="h-full bg-iris-500 rounded-full progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quiz Container -->
+    <main class="max-w-3xl mx-auto px-6 pt-28 pb-20">
+
+        <!-- Quiz Steps Container -->
+        <div id="quizContainer">
+            <!-- Steps are rendered by JavaScript -->
+        </div>
+
+    </main>
+
+    <script>
+        // ============================================================
+        // QUIZ DATA
+        // ============================================================
+
+        const contactStep = {
+            type: 'contact',
+            title: 'Let\'s get started',
+            subtitle: 'Enter your details so we can personalize your results.',
+            fields: [
+                { id: 'name', label: 'Full Name', type: 'text', required: true, placeholder: 'Jane Smith' },
+                { id: 'email', label: 'Email Address', type: 'email', required: true, placeholder: 'jane@company.com' },
+                { id: 'company', label: 'Company Name', type: 'text', required: true, placeholder: 'Acme Corp' },
+                { id: 'website', label: 'Company Website', type: 'url', required: true, placeholder: 'https://acme.com' },
+                { id: 'phone', label: 'Phone Number (optional)', type: 'tel', required: false, placeholder: '+1 555-123-4567' },
+            ]
+        };
+
+        const bestPracticeQuestions = [
+            {
+                id: 'bp1',
+                category: 'content_strategy',
+                question: 'Do you have a centralized knowledge base that all your content is generated from?',
+                feature: 'Knowledge Base',
+                options: [
+                    { text: 'Yes — single source of truth for all content', score: 10 },
+                    { text: 'Partially — some documentation exists but it\'s scattered', score: 6 },
+                    { text: 'We have some docs but don\'t use them for content creation', score: 3 },
+                    { text: 'No — we start from scratch each time', score: 0 },
+                ]
+            },
+            {
+                id: 'bp2',
+                category: 'content_strategy',
+                question: 'Do you actively research and manage keywords with volume, competition, and intent data?',
+                feature: 'Keyword Repository',
+                options: [
+                    { text: 'Yes — with AI-powered research and organized management', score: 10 },
+                    { text: 'We do some keyword research but it\'s manual and sporadic', score: 6 },
+                    { text: 'We use Google suggestions but nothing structured', score: 3 },
+                    { text: 'No — we don\'t do keyword research', score: 0 },
+                ]
+            },
+            {
+                id: 'bp3',
+                category: 'ai_search',
+                question: 'Do you track how your company appears in AI search results (ChatGPT, Perplexity, Claude, Gemini, Grok)?',
+                feature: 'Search Ranking Intelligence',
+                options: [
+                    { text: 'Yes — we track across all major AI platforms regularly', score: 10 },
+                    { text: 'We\'ve checked a few times but don\'t track consistently', score: 6 },
+                    { text: 'No — but we know it matters', score: 3 },
+                    { text: 'Didn\'t know this was possible', score: 0 },
+                ]
+            },
+            {
+                id: 'bp4',
+                category: 'content_strategy',
+                question: 'Do you have documented, regularly updated competitive intelligence on your key competitors?',
+                feature: 'Competitor Analysis',
+                options: [
+                    { text: 'Yes — automated and comprehensive with battle cards', score: 10 },
+                    { text: 'Yes — but it\'s manual and updated infrequently', score: 6 },
+                    { text: 'We have an outdated analysis from a while ago', score: 3 },
+                    { text: 'No competitor analysis in place', score: 0 },
+                ]
+            },
+            {
+                id: 'bp5',
+                category: 'content_strategy',
+                question: 'Do you have a structured content architecture (page hierarchy) for your website?',
+                feature: 'Content Architecture',
+                options: [
+                    { text: 'Yes — AI-planned with SEO settings per page', score: 10 },
+                    { text: 'We have a basic sitemap but it\'s not optimized', score: 6 },
+                    { text: 'We add pages ad hoc without a plan', score: 3 },
+                    { text: 'No structured plan for website content', score: 0 },
+                ]
+            },
+            {
+                id: 'bp6',
+                category: 'ai_search',
+                question: 'Do you know what questions your customers are asking AI assistants about your industry?',
+                feature: 'AI Optimization Questions',
+                options: [
+                    { text: 'Yes — and we create optimized answers for those questions', score: 10 },
+                    { text: 'We have a general idea but don\'t actively optimize for it', score: 6 },
+                    { text: 'No — but we\'d like to find out', score: 3 },
+                    { text: 'What do you mean?', score: 0 },
+                ]
+            },
+            {
+                id: 'bp7',
+                category: 'content_strategy',
+                question: 'Can you generate on-brand blog articles at scale with quality control?',
+                feature: 'Articles',
+                options: [
+                    { text: 'Yes — AI-generated with human review and brand voice', score: 10 },
+                    { text: 'We produce content but it\'s fully manual and slow', score: 6 },
+                    { text: 'We outsource content creation', score: 3 },
+                    { text: 'We don\'t create content regularly', score: 0 },
+                ]
+            },
+            {
+                id: 'bp8',
+                category: 'social',
+                question: 'Do you monitor social platforms (Reddit, etc.) for real-time sales opportunities in your space?',
+                feature: 'Opportunity Agent',
+                options: [
+                    { text: 'Yes — automated monitoring with AI-scored opportunities', score: 10 },
+                    { text: 'We manually check a few platforms occasionally', score: 6 },
+                    { text: 'Rarely — only when we remember to', score: 3 },
+                    { text: 'Never — we don\'t monitor social for sales opportunities', score: 0 },
+                ]
+            },
+            {
+                id: 'bp9',
+                category: 'content_strategy',
+                question: 'Do you have documented brand voice and writing guidelines that all content follows?',
+                feature: 'Brand Voice & Writing Guidelines',
+                options: [
+                    { text: 'Yes — documented guidelines enforced across all content', score: 10 },
+                    { text: 'We have informal guidelines but they\'re not always followed', score: 6 },
+                    { text: 'No — but our content is somewhat consistent', score: 3 },
+                    { text: 'No — content tone varies widely', score: 0 },
+                ]
+            },
+            {
+                id: 'bp10',
+                category: 'social',
+                question: 'Can you create and schedule social content across multiple platforms from one place?',
+                feature: 'Social Posts + Scheduler',
+                options: [
+                    { text: 'Yes — AI-assisted across 7+ platforms with campaign management', score: 10 },
+                    { text: 'We use a scheduling tool but create content manually per platform', score: 6 },
+                    { text: 'We post manually to each platform one at a time', score: 3 },
+                    { text: 'Minimal social presence — we rarely post', score: 0 },
+                ]
+            },
+        ];
+
+        const qualifyingQuestions = [
+            {
+                id: 'q1',
+                type: 'qualifying',
+                question: 'Which best describes your current content marketing situation?',
+                options: [
+                    { text: 'Just getting started — no real system yet', value: 'starting' },
+                    { text: 'We create content but it\'s ad hoc and inconsistent', value: 'adhoc' },
+                    { text: 'We have a system but it\'s plateauing / not scaling', value: 'plateauing' },
+                    { text: 'We have a mature operation but want to add AI automation', value: 'mature' },
+                ]
+            },
+            {
+                id: 'q2',
+                type: 'qualifying',
+                question: 'What is the #1 outcome you want to achieve in the next 90 days?',
+                options: [
+                    { text: 'Increase organic search traffic', value: 'organic_traffic' },
+                    { text: 'Show up in AI search results', value: 'ai_search' },
+                    { text: 'Scale content production without adding headcount', value: 'scale_content' },
+                    { text: 'Get better competitive intelligence', value: 'competitive_intel' },
+                    { text: 'Automate social media management', value: 'automate_social' },
+                    { text: 'Build a content-to-lead pipeline', value: 'lead_pipeline' },
+                ]
+            },
+            {
+                id: 'q3',
+                type: 'qualifying',
+                question: 'What\'s the biggest obstacle stopping you?',
+                options: [
+                    { text: 'We don\'t have the right tools', value: 'no_tools' },
+                    { text: 'Our team is too small', value: 'small_team' },
+                    { text: 'We don\'t know where to start with AI', value: 'no_knowledge' },
+                    { text: 'Budget constraints', value: 'budget' },
+                    { text: 'Content quality concerns', value: 'quality' },
+                    { text: 'We\'ve tried tools before and they didn\'t work', value: 'tried_failed' },
+                ]
+            },
+            {
+                id: 'q4',
+                type: 'qualifying',
+                question: 'Which solution would suit you best?',
+                options: [
+                    { text: 'Self-serve software platform I can learn myself', value: 'self_serve' },
+                    { text: 'Software with guided onboarding and support', value: 'guided' },
+                    { text: 'A fully managed service — do it all for me', value: 'managed' },
+                    { text: 'Training and education first, then tools', value: 'training' },
+                    { text: 'Not sure yet — need to learn more', value: 'unsure' },
+                ]
+            },
+            {
+                id: 'q5',
+                type: 'opentext',
+                question: 'Is there anything else about your content marketing challenges we should know?',
+                placeholder: 'Tell us anything that might help us personalize your results — your timeline, specific frustrations, tools you\'ve tried, etc.',
+            }
+        ];
+
+        // ============================================================
+        // STATE
+        // ============================================================
+
+        let currentStep = 0;
+        const totalSteps = 1 + bestPracticeQuestions.length + qualifyingQuestions.length; // contact + 10 bp + 5 qualifying = 16
+        const answers = {
+            contact: {},
+            bestPractice: {},
+            qualifying: {},
+        };
+
+        // ============================================================
+        // RENDERING
+        // ============================================================
+
+        function getStepData(step) {
+            if (step === 0) return { type: 'contact', data: contactStep };
+            if (step <= 10) return { type: 'bestPractice', data: bestPracticeQuestions[step - 1], index: step - 1 };
+            return { type: 'qualifying', data: qualifyingQuestions[step - 11], index: step - 11 };
+        }
+
+        function renderStep(step) {
+            const container = document.getElementById('quizContainer');
+            const { type, data, index } = getStepData(step);
+
+            // Update progress
+            const progress = ((step) / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+
+            const stepNum = step + 1;
+            let sectionLabel = '';
+            if (step === 0) sectionLabel = 'Contact Info';
+            else if (step <= 10) sectionLabel = `Best Practice ${step}/10`;
+            else sectionLabel = `Qualifying ${step - 10}/5`;
+            document.getElementById('progressLabel').textContent = `${sectionLabel} — Step ${stepNum} of ${totalSteps}`;
+
+            let html = '';
+
+            if (type === 'contact') {
+                html = renderContactStep(data);
+            } else if (type === 'bestPractice') {
+                html = renderQuestionStep(data, 'bestPractice', index);
+            } else if (data.type === 'opentext') {
+                html = renderOpenTextStep(data, index);
+            } else {
+                html = renderQuestionStep(data, 'qualifying', index);
+            }
+
+            container.innerHTML = `<div class="slide-enter">${html}</div>`;
+
+            // Restore previously selected answer if going back
+            restoreAnswer(type, data, index);
+        }
+
+        function renderContactStep(data) {
+            let fieldsHtml = data.fields.map(f => `
+                <div>
+                    <label for="${f.id}" class="block text-sm font-medium text-gray-300 mb-2">${f.label}</label>
+                    <input
+                        type="${f.type}"
+                        id="field_${f.id}"
+                        placeholder="${f.placeholder}"
+                        ${f.required ? 'required' : ''}
+                        class="w-full px-4 py-3 rounded-xl bg-gray-800/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-iris-500 focus:border-transparent transition-all"
+                        value="${answers.contact[f.id] || ''}"
+                    >
+                </div>
+            `).join('');
+
+            return `
+                <div class="max-w-xl mx-auto">
+                    <div class="mb-8">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-iris-500/20 text-iris-300 border border-iris-500/30 mb-4">Step 1 of ${totalSteps}</span>
+                        <h2 class="text-3xl font-bold mb-2">${data.title}</h2>
+                        <p class="text-gray-400">${data.subtitle}</p>
+                    </div>
+                    <div class="space-y-4" id="contactFields">
+                        ${fieldsHtml}
+                    </div>
+                    <div class="mt-8 flex justify-end">
+                        <button onclick="handleContactNext()" class="px-8 py-3 bg-iris-600 hover:bg-iris-500 text-white font-semibold rounded-xl transition-all flex items-center gap-2">
+                            Next
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderQuestionStep(data, type, index) {
+            const qNumber = type === 'bestPractice' ? index + 1 : index + 1;
+            const sectionLabel = type === 'bestPractice'
+                ? `Best Practice Question ${qNumber} of 10`
+                : `Qualifying Question ${qNumber} of 5`;
+            const featureTag = data.feature ? `<span class="text-xs text-iris-400 bg-iris-500/10 px-2 py-0.5 rounded-full border border-iris-500/20">${data.feature}</span>` : '';
+
+            let optionsHtml = data.options.map((opt, i) => `
+                <div class="option-card rounded-xl p-4 border border-gray-700/50 bg-gray-800/30" data-index="${i}" onclick="selectOption(this, '${type}', '${data.id}', ${i})">
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center flex-shrink-0 option-indicator">
+                            <span class="text-sm font-medium text-gray-400">${String.fromCharCode(65 + i)}</span>
+                        </div>
+                        <span class="text-gray-200">${opt.text}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+                <div class="max-w-xl mx-auto">
+                    <div class="mb-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-iris-500/20 text-iris-300 border border-iris-500/30">${sectionLabel}</span>
+                            ${featureTag}
+                        </div>
+                        <h2 class="text-2xl font-bold">${data.question}</h2>
+                    </div>
+                    <div class="space-y-3" id="optionsContainer">
+                        ${optionsHtml}
+                    </div>
+                    <div class="mt-8 flex justify-between">
+                        <button onclick="goBack()" class="px-6 py-3 text-gray-400 hover:text-white font-medium rounded-xl transition-all flex items-center gap-2 ${currentStep === 0 ? 'invisible' : ''}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
+                            Back
+                        </button>
+                        <div id="nextBtnContainer" class="opacity-0 transition-opacity duration-300">
+                            <button onclick="goNext()" class="px-8 py-3 bg-iris-600 hover:bg-iris-500 text-white font-semibold rounded-xl transition-all flex items-center gap-2">
+                                ${currentStep === totalSteps - 1 ? 'See My Results' : 'Next'}
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderOpenTextStep(data, index) {
+            return `
+                <div class="max-w-xl mx-auto">
+                    <div class="mb-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-iris-500/20 text-iris-300 border border-iris-500/30">Qualifying Question 5 of 5</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">${data.question}</h2>
+                        <p class="text-gray-400 text-sm">This is optional but incredibly helpful for personalizing your results.</p>
+                    </div>
+                    <textarea
+                        id="openTextAnswer"
+                        class="w-full px-4 py-4 rounded-xl bg-gray-800/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-iris-500 focus:border-transparent transition-all min-h-[150px] resize-y"
+                        placeholder="${data.placeholder}"
+                    >${answers.qualifying['q5'] || ''}</textarea>
+                    <div class="mt-8 flex justify-between">
+                        <button onclick="goBack()" class="px-6 py-3 text-gray-400 hover:text-white font-medium rounded-xl transition-all flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
+                            Back
+                        </button>
+                        <button onclick="handleOpenTextNext()" class="px-8 py-3 bg-iris-600 hover:bg-iris-500 text-white font-semibold rounded-xl transition-all flex items-center gap-2">
+                            See My Results
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ============================================================
+        // INTERACTIONS
+        // ============================================================
+
+        function selectOption(el, type, questionId, optionIndex) {
+            // Deselect all
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+                const indicator = card.querySelector('.option-indicator');
+                indicator.classList.remove('bg-iris-600', 'border-iris-600');
+                indicator.classList.add('border-gray-600');
+                indicator.querySelector('span').classList.remove('text-white');
+                indicator.querySelector('span').classList.add('text-gray-400');
+            });
+
+            // Select this one
+            el.classList.add('selected');
+            const indicator = el.querySelector('.option-indicator');
+            indicator.classList.add('bg-iris-600', 'border-iris-600');
+            indicator.classList.remove('border-gray-600');
+            indicator.querySelector('span').classList.add('text-white');
+            indicator.querySelector('span').classList.remove('text-gray-400');
+
+            // Store answer
+            if (type === 'bestPractice') {
+                answers.bestPractice[questionId] = optionIndex;
+            } else {
+                answers.qualifying[questionId] = optionIndex;
+            }
+
+            // Show next button
+            document.getElementById('nextBtnContainer').classList.remove('opacity-0');
+            document.getElementById('nextBtnContainer').classList.add('opacity-100');
+
+            // Auto-advance after a brief delay
+            setTimeout(() => goNext(), 400);
+        }
+
+        function handleContactNext() {
+            const fields = contactStep.fields;
+            let valid = true;
+
+            fields.forEach(f => {
+                const input = document.getElementById('field_' + f.id);
+                const val = input.value.trim();
+                answers.contact[f.id] = val;
+
+                if (f.required && !val) {
+                    valid = false;
+                    input.classList.add('border-red-500');
+                    input.classList.remove('border-gray-700');
+                } else {
+                    input.classList.remove('border-red-500');
+                    input.classList.add('border-gray-700');
+                }
+            });
+
+            if (!valid) return;
+
+            goNext();
+        }
+
+        function handleOpenTextNext() {
+            const textarea = document.getElementById('openTextAnswer');
+            answers.qualifying['q5'] = textarea.value.trim();
+            submitQuiz();
+        }
+
+        function goNext() {
+            if (currentStep < totalSteps - 1) {
+                currentStep++;
+                renderStep(currentStep);
+            } else {
+                submitQuiz();
+            }
+        }
+
+        function goBack() {
+            if (currentStep > 0) {
+                currentStep--;
+                renderStep(currentStep);
+            }
+        }
+
+        function restoreAnswer(type, data, index) {
+            if (type === 'contact') return; // Already handled via input values
+
+            if (type === 'bestPractice' && answers.bestPractice[data.id] !== undefined) {
+                const idx = answers.bestPractice[data.id];
+                const cards = document.querySelectorAll('.option-card');
+                if (cards[idx]) {
+                    cards[idx].classList.add('selected');
+                    const indicator = cards[idx].querySelector('.option-indicator');
+                    indicator.classList.add('bg-iris-600', 'border-iris-600');
+                    indicator.classList.remove('border-gray-600');
+                    indicator.querySelector('span').classList.add('text-white');
+                    indicator.querySelector('span').classList.remove('text-gray-400');
+                    document.getElementById('nextBtnContainer').classList.remove('opacity-0');
+                    document.getElementById('nextBtnContainer').classList.add('opacity-100');
+                }
+            }
+
+            if (type === 'qualifying' && data.type !== 'opentext' && answers.qualifying[data.id] !== undefined) {
+                const idx = answers.qualifying[data.id];
+                const cards = document.querySelectorAll('.option-card');
+                if (cards[idx]) {
+                    cards[idx].classList.add('selected');
+                    const indicator = cards[idx].querySelector('.option-indicator');
+                    indicator.classList.add('bg-iris-600', 'border-iris-600');
+                    indicator.classList.remove('border-gray-600');
+                    indicator.querySelector('span').classList.add('text-white');
+                    indicator.querySelector('span').classList.remove('text-gray-400');
+                    document.getElementById('nextBtnContainer').classList.remove('opacity-0');
+                    document.getElementById('nextBtnContainer').classList.add('opacity-100');
+                }
+            }
+        }
+
+        // ============================================================
+        // SUBMISSION
+        // ============================================================
+
+        function submitQuiz() {
+            // Calculate scores
+            let totalScore = 0;
+            let maxScore = bestPracticeQuestions.length * 10;
+            let categoryScores = { ai_search: 0, content_strategy: 0, social: 0 };
+            let categoryCounts = { ai_search: 0, content_strategy: 0, social: 0 };
+
+            bestPracticeQuestions.forEach(q => {
+                const answerIndex = answers.bestPractice[q.id];
+                const score = answerIndex !== undefined ? q.options[answerIndex].score : 0;
+                totalScore += score;
+                categoryScores[q.category] += score;
+                categoryCounts[q.category]++;
+            });
+
+            // Normalize category scores to percentage
+            const categoryPct = {};
+            for (const cat in categoryScores) {
+                categoryPct[cat] = Math.round((categoryScores[cat] / (categoryCounts[cat] * 10)) * 100);
+            }
+
+            const overallPct = Math.round((totalScore / maxScore) * 100);
+
+            // Gather qualifying answers
+            const qualifyingAnswers = {};
+            qualifyingQuestions.forEach(q => {
+                if (q.type === 'opentext') {
+                    qualifyingAnswers[q.id] = answers.qualifying[q.id] || '';
+                } else {
+                    const idx = answers.qualifying[q.id];
+                    qualifyingAnswers[q.id] = idx !== undefined ? q.options[idx].value : '';
+                }
+            });
+
+            // Build results data
+            const resultsData = {
+                contact: answers.contact,
+                overallScore: overallPct,
+                categoryScores: categoryPct,
+                qualifyingAnswers: qualifyingAnswers,
+                rawAnswers: answers,
+                timestamp: new Date().toISOString(),
+            };
+
+            // Save to localStorage and redirect
+            localStorage.setItem('iriscale_scorecard_results', JSON.stringify(resultsData));
+            window.location.href = 'results.html';
+        }
+
+        // ============================================================
+        // INIT
+        // ============================================================
+
+        renderStep(0);
+    </script>
+
+</body>
+</html>

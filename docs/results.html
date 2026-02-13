@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Results — AI Content Marketing Scorecard | IriScale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        iris: {
+                            50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+                            400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+                            800: '#3730a3', 900: '#312e81', 950: '#1e1b4b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4338ca 60%, #4f46e5 100%);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow {
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.3), 0 0 80px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Speedometer */
+        .speedometer-container {
+            position: relative;
+            width: 280px;
+            height: 160px;
+            margin: 0 auto;
+        }
+        .speedometer-bg {
+            position: absolute;
+            width: 280px;
+            height: 140px;
+            overflow: hidden;
+        }
+        .speedometer-bg::before {
+            content: '';
+            display: block;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 24px solid #1f2937;
+            box-sizing: border-box;
+        }
+        .speedometer-fill {
+            position: absolute;
+            width: 280px;
+            height: 140px;
+            overflow: hidden;
+        }
+        .speedometer-fill::before {
+            content: '';
+            display: block;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 24px solid transparent;
+            box-sizing: border-box;
+            transform: rotate(var(--rotation));
+            transition: transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .speedometer-fill.low::before { border-bottom-color: #ef4444; border-left-color: #ef4444; }
+        .speedometer-fill.mid::before { border-bottom-color: #f59e0b; border-left-color: #f59e0b; border-top-color: #f59e0b; }
+        .speedometer-fill.high::before { border-bottom-color: #22c55e; border-left-color: #22c55e; border-top-color: #22c55e; border-right-color: #22c55e; }
+
+        .needle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            height: 120px;
+            background: linear-gradient(to top, #fff 0%, #fff 70%, transparent 100%);
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(var(--needle-rotation));
+            transition: transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 2px;
+            z-index: 10;
+        }
+        .needle-base {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            z-index: 11;
+        }
+
+        /* Category bars */
+        .cat-bar-fill {
+            transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1.0s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+
+    <!-- No Results Fallback -->
+    <div id="noResults" class="hidden min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <h1 class="text-2xl font-bold mb-4">No Results Found</h1>
+            <p class="text-gray-400 mb-6">Please take the assessment first to see your results.</p>
+            <a href="index.html" class="px-8 py-3 bg-iris-600 hover:bg-iris-500 text-white font-semibold rounded-xl transition-all inline-block">Take the Assessment</a>
+        </div>
+    </div>
+
+    <!-- Results Content -->
+    <div id="resultsContent" class="hidden">
+
+        <!-- Hero / Big Reveal -->
+        <section class="gradient-bg pt-16 pb-20">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <div class="fade-in-up">
+                    <p class="text-iris-200 text-sm font-medium mb-2" id="greeting"></p>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Your AI Content Marketing Readiness Score</h1>
+                    <p class="text-iris-200/70 mb-10" id="dynamicMessage"></p>
+                </div>
+
+                <!-- Speedometer -->
+                <div class="fade-in-up delay-1">
+                    <div class="speedometer-container mx-auto mb-4">
+                        <div class="speedometer-bg"></div>
+                        <div class="speedometer-fill" id="speedometerFill"></div>
+                        <div class="needle" id="needle" style="--needle-rotation: -90deg;"></div>
+                        <div class="needle-base"></div>
+                    </div>
+                    <div class="text-6xl font-black mb-1" id="scoreDisplay">0%</div>
+                    <div class="text-lg font-medium mb-1" id="scoreLabel"></div>
+                </div>
+
+                <!-- Category Breakdown -->
+                <div class="fade-in-up delay-2 mt-12 max-w-lg mx-auto">
+                    <h3 class="text-sm font-semibold text-iris-200 uppercase tracking-wider mb-6">Score Breakdown</h3>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <span class="text-sm font-medium text-gray-300">AI Search Visibility</span>
+                                <span class="text-sm font-bold text-iris-300" id="catAiSearch">0%</span>
+                            </div>
+                            <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="cat-bar-fill h-full rounded-full" id="barAiSearch" style="width: 0%; background: linear-gradient(90deg, #818cf8, #6366f1);"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <span class="text-sm font-medium text-gray-300">Content Strategy & Production</span>
+                                <span class="text-sm font-bold text-iris-300" id="catContent">0%</span>
+                            </div>
+                            <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="cat-bar-fill h-full rounded-full" id="barContent" style="width: 0%; background: linear-gradient(90deg, #818cf8, #6366f1);"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <span class="text-sm font-medium text-gray-300">Social & Opportunity Capture</span>
+                                <span class="text-sm font-bold text-iris-300" id="catSocial">0%</span>
+                            </div>
+                            <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="cat-bar-fill h-full rounded-full" id="barSocial" style="width: 0%; background: linear-gradient(90deg, #818cf8, #6366f1);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Personalized Insights -->
+        <section class="py-16 bg-gray-950">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 fade-in-up delay-3">Your 3 Key Insights</h2>
+                <div class="space-y-6" id="insightsContainer">
+                    <!-- Dynamically filled -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalized Next Step -->
+        <section class="py-16 bg-gray-900/30 border-t border-b border-gray-800/50">
+            <div class="max-w-3xl mx-auto px-6 text-center">
+                <div class="fade-in-up delay-4">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Your Recommended Next Step</h2>
+                    <p class="text-gray-400 mb-8" id="nextStepDescription"></p>
+                    <div id="nextStepCTA"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What You Told Us (qualifying summary) -->
+        <section class="py-16 bg-gray-950">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="fade-in-up delay-5">
+                    <h2 class="text-2xl font-bold mb-8 text-center">Your Profile Summary</h2>
+                    <div class="grid md:grid-cols-2 gap-6" id="profileSummary">
+                        <!-- Dynamically filled -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-950 border-t border-gray-800/50 py-12">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <div class="mb-6">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-iris-500 to-iris-700 flex items-center justify-center mb-3">
+                        <span class="text-lg font-bold text-white">IS</span>
+                    </div>
+                    <p class="text-gray-400 max-w-md mx-auto">IriScale — AI-powered content marketing platform covering the entire content lifecycle.</p>
+                </div>
+                <div class="flex justify-center gap-6 mb-6">
+                    <a href="#" class="text-gray-500 hover:text-iris-400 transition-colors">Website</a>
+                    <a href="#" class="text-gray-500 hover:text-iris-400 transition-colors">LinkedIn</a>
+                    <a href="#" class="text-gray-500 hover:text-iris-400 transition-colors">Twitter</a>
+                    <a href="#" class="text-gray-500 hover:text-iris-400 transition-colors">Contact</a>
+                </div>
+                <p class="text-gray-600 text-sm">&copy; 2026 IriScale. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ============================================================
+        // LOAD RESULTS
+        // ============================================================
+
+        const raw = localStorage.getItem('iriscale_scorecard_results');
+        if (!raw) {
+            document.getElementById('noResults').classList.remove('hidden');
+        } else {
+            document.getElementById('resultsContent').classList.remove('hidden');
+            const data = JSON.parse(raw);
+            renderResults(data);
+        }
+
+        function renderResults(data) {
+            const { contact, overallScore, categoryScores, qualifyingAnswers } = data;
+
+            // Greeting
+            const firstName = (contact.name || '').split(' ')[0] || 'there';
+            document.getElementById('greeting').textContent = `Here are your results, ${firstName}`;
+
+            // Dynamic message based on score
+            let message = '';
+            let scoreLabel = '';
+            if (overallScore >= 80) {
+                message = "Congratulations — you've got strong foundations. You're ready to supercharge your content marketing with AI automation.";
+                scoreLabel = 'Excellent';
+            } else if (overallScore >= 50) {
+                message = "You've got solid foundations, but there's significant room to improve. A few key changes could dramatically increase your results.";
+                scoreLabel = 'Good Foundations';
+            } else {
+                message = "There's a lot of opportunity ahead. Most businesses in your position see rapid improvement once they put the right systems in place.";
+                scoreLabel = 'Room to Grow';
+            }
+            document.getElementById('dynamicMessage').textContent = message;
+            document.getElementById('scoreLabel').textContent = scoreLabel;
+
+            // Animate speedometer
+            setTimeout(() => {
+                // Score display count-up
+                animateNumber('scoreDisplay', overallScore, '%');
+
+                // Needle rotation: -90deg (0%) to 90deg (100%)
+                const needleRotation = -90 + (overallScore / 100) * 180;
+                document.getElementById('needle').style.setProperty('--needle-rotation', needleRotation + 'deg');
+
+                // Speedometer fill
+                const fillEl = document.getElementById('speedometerFill');
+                if (overallScore < 40) fillEl.classList.add('low');
+                else if (overallScore < 75) fillEl.classList.add('mid');
+                else fillEl.classList.add('high');
+
+                const fillRotation = -180 + (overallScore / 100) * 180;
+                fillEl.style.setProperty('--rotation', fillRotation + 'deg');
+
+                // Category bars
+                setTimeout(() => {
+                    const aiSearch = categoryScores.ai_search || 0;
+                    const content = categoryScores.content_strategy || 0;
+                    const social = categoryScores.social || 0;
+
+                    document.getElementById('barAiSearch').style.width = aiSearch + '%';
+                    document.getElementById('catAiSearch').textContent = aiSearch + '%';
+
+                    document.getElementById('barContent').style.width = content + '%';
+                    document.getElementById('catContent').textContent = content + '%';
+
+                    document.getElementById('barSocial').style.width = social + '%';
+                    document.getElementById('catSocial').textContent = social + '%';
+                }, 300);
+            }, 500);
+
+            // 3 Insights
+            renderInsights(categoryScores);
+
+            // Next Step
+            renderNextStep(qualifyingAnswers, overallScore);
+
+            // Profile Summary
+            renderProfile(contact, qualifyingAnswers);
+        }
+
+        function animateNumber(elementId, target, suffix) {
+            const el = document.getElementById(elementId);
+            const duration = 1500;
+            const start = performance.now();
+
+            function update(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                const current = Math.round(eased * target);
+                el.textContent = current + suffix;
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+
+        // ============================================================
+        // INSIGHTS
+        // ============================================================
+
+        function renderInsights(scores) {
+            const insights = [];
+
+            // Sort categories by score (lowest first) to prioritize weakest areas
+            const sorted = [
+                { key: 'ai_search', label: 'AI Search Visibility', score: scores.ai_search || 0 },
+                { key: 'content_strategy', label: 'Content Strategy & Production', score: scores.content_strategy || 0 },
+                { key: 'social', label: 'Social & Opportunity Capture', score: scores.social || 0 },
+            ].sort((a, b) => a.score - b.score);
+
+            const insightData = {
+                ai_search: {
+                    low: {
+                        title: "You're invisible to AI search",
+                        body: "When your customers ask ChatGPT, Perplexity, or Claude about your industry, your competitors may be showing up — not you. IriScale's Search Ranking Intelligence tracks your visibility across 5 major AI platforms simultaneously, and our AI Optimization Questions & Answers module helps you create content that gets cited in AI responses.",
+                        icon: '🔍',
+                        color: 'red',
+                    },
+                    mid: {
+                        title: "Your AI search visibility needs attention",
+                        body: "You're aware of AI search but not actively optimizing for it. IriScale can discover exactly what questions your customers are asking AI assistants and generate optimized answers that boost your visibility across ChatGPT, Claude, Gemini, Perplexity, and Grok.",
+                        icon: '🔍',
+                        color: 'yellow',
+                    },
+                    high: {
+                        title: "Strong AI search awareness",
+                        body: "You're ahead of most businesses in understanding AI search. IriScale can help you scale this advantage with automated tracking across all 5 major AI platforms and AI-generated optimization content.",
+                        icon: '🔍',
+                        color: 'green',
+                    }
+                },
+                content_strategy: {
+                    low: {
+                        title: "Your content strategy needs a foundation",
+                        body: "Without a centralized knowledge base, structured content architecture, and systematic keyword research, you're creating content in the dark. IriScale's Content Architecture AI generates a complete website page hierarchy from your business data in minutes, while the Keyword Repository and Competitor Analysis give you the intelligence to create content that ranks.",
+                        icon: '📄',
+                        color: 'red',
+                    },
+                    mid: {
+                        title: "Your content strategy has gaps to fill",
+                        body: "You have some content processes in place, but there are clear opportunities to systematize and scale. IriScale brings together keyword research, content planning, article generation, and competitive intelligence into one AI-powered workflow — so nothing falls through the cracks.",
+                        icon: '📄',
+                        color: 'yellow',
+                    },
+                    high: {
+                        title: "Solid content strategy foundation",
+                        body: "Your content processes are well-established. IriScale can help you scale further with AI-powered article generation, automated competitive intelligence with sales battle cards, and a structured content architecture that maximizes SEO impact.",
+                        icon: '📄',
+                        color: 'green',
+                    }
+                },
+                social: {
+                    low: {
+                        title: "You're missing live sales opportunities",
+                        body: "Right now, your potential customers are discussing their problems on Reddit and social media — and you're not in the conversation. IriScale's Opportunity Agent monitors these platforms 24/7 with AI-scored opportunity detection, while Social Posts generates platform-optimized content for 7 platforms from a single dashboard.",
+                        icon: '💬',
+                        color: 'red',
+                    },
+                    mid: {
+                        title: "Your social presence could work harder",
+                        body: "You're present on social media but not leveraging it for lead generation. IriScale's Opportunity Agent can automatically surface high-intent conversations happening in your space, and the Social Scheduler lets you maintain a consistent presence across all platforms with AI-generated content.",
+                        icon: '💬',
+                        color: 'yellow',
+                    },
+                    high: {
+                        title: "Strong social engagement",
+                        body: "You're active on social and monitoring for opportunities. IriScale can help you scale this with AI-powered opportunity scoring, automated blog article recommendations from discovered opportunities, and campaign management across 7 platforms.",
+                        icon: '💬',
+                        color: 'green',
+                    }
+                }
+            };
+
+            const container = document.getElementById('insightsContainer');
+            let html = '';
+
+            sorted.forEach((cat, i) => {
+                let level = 'low';
+                if (cat.score >= 70) level = 'high';
+                else if (cat.score >= 40) level = 'mid';
+
+                const insight = insightData[cat.key][level];
+                const borderColor = insight.color === 'red' ? 'border-red-500/30' : insight.color === 'yellow' ? 'border-amber-500/30' : 'border-green-500/30';
+                const bgColor = insight.color === 'red' ? 'bg-red-500/5' : insight.color === 'yellow' ? 'bg-amber-500/5' : 'bg-green-500/5';
+                const badgeColor = insight.color === 'red' ? 'bg-red-500/20 text-red-300' : insight.color === 'yellow' ? 'bg-amber-500/20 text-amber-300' : 'bg-green-500/20 text-green-300';
+
+                html += `
+                    <div class="fade-in-up delay-${i + 3} rounded-2xl border ${borderColor} ${bgColor} p-6 md:p-8">
+                        <div class="flex items-start gap-4">
+                            <span class="text-3xl flex-shrink-0">${insight.icon}</span>
+                            <div>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <h3 class="text-lg font-bold">${insight.title}</h3>
+                                    <span class="text-xs px-2 py-0.5 rounded-full ${badgeColor} font-medium">${cat.score}%</span>
+                                </div>
+                                <p class="text-gray-300 leading-relaxed">${insight.body}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // ============================================================
+        // NEXT STEP
+        // ============================================================
+
+        function renderNextStep(qa, overallScore) {
+            const situation = qa.q1 || '';
+            const solution = qa.q4 || '';
+            const obstacle = qa.q3 || '';
+
+            let tier = 'cool'; // default
+
+            // Hot: plateauing/mature + software/managed + not budget-constrained
+            if ((situation === 'plateauing' || situation === 'mature') &&
+                (solution === 'self_serve' || solution === 'guided' || solution === 'managed')) {
+                tier = 'hot';
+            }
+            // Warm: adhoc + has some direction
+            else if ((situation === 'adhoc' || situation === 'plateauing') &&
+                     (solution !== 'unsure' || overallScore >= 40)) {
+                tier = 'warm';
+            }
+            // Cool: starting + unsure/training + budget obstacle
+            // (default)
+
+            const descEl = document.getElementById('nextStepDescription');
+            const ctaEl = document.getElementById('nextStepCTA');
+
+            if (tier === 'hot') {
+                descEl.textContent = "Based on your answers, you're in a great position to see immediate results with IriScale. We'd love to show you the platform configured for your specific industry and needs.";
+                ctaEl.innerHTML = `
+                    <a href="#" class="inline-flex items-center gap-3 bg-iris-600 text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-iris-500 transition-all glow hover:scale-105">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        Book a Personalized Demo
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500">We'll show you IriScale configured for your industry — no commitment</p>
+                `;
+            } else if (tier === 'warm') {
+                descEl.textContent = "You've got a foundation to build on. Watch a quick platform walkthrough to see how IriScale can help you fill the gaps we identified in your scorecard.";
+                ctaEl.innerHTML = `
+                    <a href="#" class="inline-flex items-center gap-3 bg-iris-600 text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-iris-500 transition-all glow hover:scale-105">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Watch the 5-Minute Platform Walkthrough
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500">See exactly how IriScale addresses each gap in your scorecard</p>
+                `;
+            } else {
+                descEl.textContent = "It looks like you're earlier in your content marketing journey. We've put together a comprehensive guide to help you build a strong foundation with AI-powered content marketing.";
+                ctaEl.innerHTML = `
+                    <a href="#" class="inline-flex items-center gap-3 bg-iris-600 text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-iris-500 transition-all glow hover:scale-105">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        Download the Free AI Content Marketing Playbook
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500">A step-by-step guide to building your content marketing engine</p>
+                `;
+            }
+        }
+
+        // ============================================================
+        // PROFILE SUMMARY
+        // ============================================================
+
+        function renderProfile(contact, qa) {
+            const container = document.getElementById('profileSummary');
+
+            const situationMap = {
+                'starting': 'Just getting started',
+                'adhoc': 'Creating content but ad hoc',
+                'plateauing': 'Established but plateauing',
+                'mature': 'Mature, seeking AI automation',
+            };
+            const outcomeMap = {
+                'organic_traffic': 'Increase organic search traffic',
+                'ai_search': 'Show up in AI search results',
+                'scale_content': 'Scale content production',
+                'competitive_intel': 'Better competitive intelligence',
+                'automate_social': 'Automate social media',
+                'lead_pipeline': 'Build content-to-lead pipeline',
+            };
+            const obstacleMap = {
+                'no_tools': 'Don\'t have the right tools',
+                'small_team': 'Team is too small',
+                'no_knowledge': 'Don\'t know where to start with AI',
+                'budget': 'Budget constraints',
+                'quality': 'Content quality concerns',
+                'tried_failed': 'Tried tools before — didn\'t work',
+            };
+            const solutionMap = {
+                'self_serve': 'Self-serve software platform',
+                'guided': 'Software with guided onboarding',
+                'managed': 'Fully managed service',
+                'training': 'Training & education first',
+                'unsure': 'Not sure yet',
+            };
+
+            const cards = [
+                { label: 'Company', value: contact.company || 'N/A', icon: '🏢' },
+                { label: 'Current Situation', value: situationMap[qa.q1] || 'N/A', icon: '📍' },
+                { label: '#1 Goal (Next 90 Days)', value: outcomeMap[qa.q2] || 'N/A', icon: '🎯' },
+                { label: 'Biggest Obstacle', value: obstacleMap[qa.q3] || 'N/A', icon: '🚧' },
+                { label: 'Preferred Solution', value: solutionMap[qa.q4] || 'N/A', icon: '🔧' },
+                { label: 'Website', value: contact.website || 'N/A', icon: '🌐' },
+            ];
+
+            let html = '';
+            cards.forEach(card => {
+                html += `
+                    <div class="glass rounded-xl p-5 border border-gray-800">
+                        <div class="flex items-start gap-3">
+                            <span class="text-xl">${card.icon}</span>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">${card.label}</p>
+                                <p class="text-gray-200 font-medium">${card.value}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Add open-text if provided
+            if (qa.q5) {
+                html += `
+                    <div class="glass rounded-xl p-5 border border-gray-800 md:col-span-2">
+                        <div class="flex items-start gap-3">
+                            <span class="text-xl">💭</span>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Additional Notes</p>
+                                <p class="text-gray-200">"${qa.q5}"</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+    </script>
+
+</body>
+</html>
