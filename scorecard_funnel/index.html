@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Marketing Scorecard | IriScale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        iris: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                            950: '#1e1b4b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4338ca 60%, #4f46e5 100%);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glow {
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.3), 0 0 80px rgba(99, 102, 241, 0.1);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .stat-ring {
+            background: conic-gradient(#818cf8 0deg, #6366f1 120deg, #4f46e5 240deg, #818cf8 360deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white">
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-iris-400/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-iris-600/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+
+        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Hook Selector (both hooks shown, pick one in production) -->
+                <div class="mb-4">
+                    <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-iris-400/20 text-iris-200 border border-iris-400/30">
+                        Free Assessment &middot; Takes 3 Minutes
+                    </span>
+                </div>
+
+                <!-- Frustration Hook -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    Feeling frustrated that your content isn't generating leads
+                    <span class="text-iris-300"> even though you're publishing consistently?</span>
+                </h1>
+
+                <!-- Subheading -->
+                <p class="text-xl md:text-2xl text-iris-200/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Answer 15 questions to find out where your content marketing is falling short and get a personalized action plan to fix it.
+                </p>
+
+                <!-- Value Proposition -->
+                <div class="glass rounded-2xl p-8 mb-10 max-w-3xl mx-auto">
+                    <p class="text-lg text-iris-100 mb-6 font-medium">
+                        Take this assessment so we can measure and improve your:
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-14 h-14 mx-auto mb-3 rounded-xl bg-iris-500/30 flex items-center justify-center">
+                                <svg class="w-7 h-7 text-iris-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white mb-1">AI Search Visibility</h3>
+                            <p class="text-sm text-iris-200/70">Are you showing up when people ask ChatGPT, Perplexity, or Claude about your industry?</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-14 h-14 mx-auto mb-3 rounded-xl bg-iris-500/30 flex items-center justify-center">
+                                <svg class="w-7 h-7 text-iris-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white mb-1">Content Strategy & Production</h3>
+                            <p class="text-sm text-iris-200/70">Do you have a structured plan and the ability to produce content at scale?</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-14 h-14 mx-auto mb-3 rounded-xl bg-iris-500/30 flex items-center justify-center">
+                                <svg class="w-7 h-7 text-iris-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white mb-1">Social & Opportunity Capture</h3>
+                            <p class="text-sm text-iris-200/70">Are you actively finding and engaging prospects where they're already talking?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="quiz.html" class="inline-flex items-center gap-3 bg-white text-iris-900 font-bold text-lg px-10 py-5 rounded-2xl hover:bg-iris-50 transition-all duration-300 glow hover:scale-105">
+                    <span>Start the Free Assessment</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+                <p class="mt-4 text-sm text-iris-300/70">Only takes 3 minutes &middot; Completely free &middot; Immediate recommendations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Section -->
+    <section class="bg-gray-950 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Trust This Assessment?</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Built on insights from IriScale's AI-powered platform — used by businesses to dominate content marketing, SEO, and AI search visibility.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8 mb-16">
+                <div class="text-center card-hover bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
+                    <div class="text-4xl font-bold text-iris-400 mb-2">5</div>
+                    <p class="text-gray-400">Integrated Suites</p>
+                </div>
+                <div class="text-center card-hover bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
+                    <div class="text-4xl font-bold text-iris-400 mb-2">17+</div>
+                    <p class="text-gray-400">AI-Powered Features</p>
+                </div>
+                <div class="text-center card-hover bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
+                    <div class="text-4xl font-bold text-iris-400 mb-2">5</div>
+                    <p class="text-gray-400">AI Platforms Tracked</p>
+                </div>
+                <div class="text-center card-hover bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
+                    <div class="text-4xl font-bold text-iris-400 mb-2">7</div>
+                    <p class="text-gray-400">Social Platforms Supported</p>
+                </div>
+            </div>
+
+            <!-- Who Created This -->
+            <div class="glass rounded-2xl p-8 md:p-12 max-w-4xl mx-auto border border-gray-800">
+                <div class="md:flex items-start gap-8">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-iris-500 to-iris-700 flex items-center justify-center flex-shrink-0 mb-6 md:mb-0">
+                        <span class="text-3xl font-bold text-white">IS</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">About IriScale</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            IriScale is an AI-powered content marketing platform that covers the entire content lifecycle — from keyword research and competitive intelligence to content creation, social publishing, and AI search optimization.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed">
+                            Our platform tracks your visibility across ChatGPT, Claude, Gemini, Perplexity, and Grok simultaneously. We generate competitive sales battle cards, discover what questions your customers are asking AI assistants, and automate content creation across 7 social platforms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="bg-gray-900/30 py-20 border-t border-b border-gray-800/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">How It Works</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-iris-600 flex items-center justify-center text-2xl font-bold">1</div>
+                    <h3 class="font-semibold text-lg mb-2">Answer 15 Questions</h3>
+                    <p class="text-gray-400">Quick multiple-choice questions about your current content marketing practices and goals.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-iris-600 flex items-center justify-center text-2xl font-bold">2</div>
+                    <h3 class="font-semibold text-lg mb-2">Get Your Score</h3>
+                    <p class="text-gray-400">See your AI Content Marketing Readiness Score with a breakdown across 3 key areas.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-iris-600 flex items-center justify-center text-2xl font-bold">3</div>
+                    <h3 class="font-semibold text-lg mb-2">Get Your Action Plan</h3>
+                    <p class="text-gray-400">Receive personalized insights and next steps tailored to your specific situation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 bg-gray-950">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to See Where You Stand?</h2>
+            <p class="text-gray-400 text-lg mb-8">Join businesses using AI to transform their content marketing. Get your personalized scorecard in just 3 minutes.</p>
+            <a href="quiz.html" class="inline-flex items-center gap-3 bg-iris-600 text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-iris-500 transition-all duration-300 glow hover:scale-105">
+                <span>Start the Quiz — It's Free</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </a>
+            <p class="mt-4 text-sm text-gray-500">No credit card required &middot; Instant results</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-800/50 py-10">
+        <div class="max-w-6xl mx-auto px-6 text-center text-gray-500 text-sm">
+            <p>&copy; 2026 IriScale. All rights reserved.</p>
+            <div class="mt-4 flex justify-center gap-6">
+                <a href="#" class="hover:text-iris-400 transition-colors">Website</a>
+                <a href="#" class="hover:text-iris-400 transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-iris-400 transition-colors">Twitter</a>
+                <a href="#" class="hover:text-iris-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

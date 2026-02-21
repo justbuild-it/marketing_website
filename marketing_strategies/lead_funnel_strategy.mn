@@ -1,0 +1,394 @@
+# IriScale Lead Generation Strategy: Scorecard Marketing Funnel
+
+> **Source Video:** [The $1 Million Landing Page (Works For Normal People)](https://www.youtube.com/watch?v=az1Zh-FNSno) by Daniel Priestley  
+> **Strategy Type:** Assessment / Scorecard-Based Lead Generation (aka "Scorecard Marketing")  
+> **Tool Referenced in Video:** [ScoreApp](https://www.scoreapp.com/) (Priestley is co-founder)  
+> **IriScale Feature Reference:** `iriscale _app_assessment/` folder  
+> **Transcript Source:** Full YouTube transcript  
+> **Date Created:** February 12, 2026
+
+---
+
+## Part 1: Video Strategy Breakdown (from Full Transcript)
+
+### Core Thesis
+
+> "If there is one thing that I've learned over the last 20 years of scaling multiple companies, it's this: **Everything is downstream from lead generation.** If you can generate leads, you can solve all the other problems after that. But if you cannot generate leads, you are dead in the water."
+
+Daniel Priestley describes a **multi-million dollar lead generation system** that he sets up every single time he takes on a new business project. He has used it on: **agencies, software companies, education and training, coaching, consulting**, and other businesses. The system is an **online assessment** that generates leads consistently.
+
+### The System: 4 Parts
+
+---
+
+#### Part 1: Landing Page (0:48)
+
+The landing page explains what the assessment will do for people. It has 5 components in order:
+
+**1. The Hook (top of page — first thing people see on their phone)**
+
+Choose ONE of two hook types:
+
+- **Frustration Hook:** Names the frustration people are experiencing. Formula: *"Feeling frustrated that [problem] even though [you're already doing X]."*
+  - Example: "Feeling frustrated that you're not getting the fitness results you want even though you work out every week"
+  - Example: "Feeling frustrated that you're not getting investment returns even though you invest consistently every month"
+  - Example: "Feeling frustrated that you have not been able to scale up your marketing even though you're willing to invest in ads"
+
+- **Results Hook (Readiness Sentence):** Asks if they're ready for a specific result. Formula: *"Are you ready to [desired result]?"*
+  - Example: "Are you ready to run your first marathon?"
+  - Example: "Are you ready to have the relationship of your dreams?"
+  - Example: "Are you ready to protect your business from a cyber security threat?"
+  - Why it works: People think "I'm not sure if I'm ready — I want to take this assessment to find out."
+
+**2. Subheading**
+
+Directs people to take the assessment. Formula: *"Answer 15 questions to find out why you're experiencing this frustration and what to do about it."*
+
+**3. Value Proposition**
+
+Tell people the assessment will **measure and improve 3 key areas**. Formula: *"Take this assessment so we can measure and improve [Area 1], [Area 2], and [Area 3]."*
+
+- Example (sleep assessment): "Answer these 15 questions so we can measure and improve your sleep environment, your sleep routine, and your sleep nutrition."
+- The 3 areas should be things people would love to achieve on the way to the bigger result.
+
+**4. Credibility Section**
+
+People hear a powerful hook + value proposition and immediately wonder if it's credible. This section answers:
+- **Who created this?** — Your name and bio
+- **What have you done in the past?** — Your background
+- **What research have you done?** — Statistics, figures, studies
+  - Example: "85% of people struggle with X, Y, and Z"
+  - Example: "A recent Harvard University study found that 15% of people are achieving X"
+
+**5. Call to Action (CTA)**
+
+Must cover these 4 elements:
+1. **Start the quiz** — that's the next step
+2. **It only takes 3 minutes** to complete
+3. **It's completely free**
+4. **You get immediate recommendations** on how you can improve
+
+**Key Metric from Priestley:** If you get this right, **20-40% of people who hit the landing page will start the quiz.** That is a massive lead generator.
+
+---
+
+#### Part 2: Questionnaire — 15 Questions in 3 Parts (4:17)
+
+**Part A — Contact Information (required to start the quiz):**
+
+| Field | Required? | Notes |
+|-------|-----------|-------|
+| Name | Yes | Must enter to start |
+| Email | Yes | Must enter to start |
+| Location | Auto-captured | Via IP address |
+| Phone number | Optional | Give them the opportunity but don't make it mandatory |
+
+**Part B — 10 Best Practice Questions (these generate the score):**
+
+Ask people if they're doing 10 things they should be doing. These are yes/no or scaled multiple-choice questions about best practices in the relevant domain. The answers directly determine their score.
+
+Priestley's examples:
+- Sleep assessment: "Do you get to bed at the same time every night?" "Are you using too many screens before bed?"
+- Fitness assessment: "Do you track your calories?" "Do you work out three or four times a week?"
+
+> You need to come up with 10 best practices that you think people should be doing if they're doing all the right things. That's what informs the score.
+
+**Part C — 5 Qualifying Questions (these qualify the lead for sales):**
+
+| # | Question | Format | What It Reveals |
+|---|----------|--------|-----------------|
+| **Q1** | "Which best describes your current situation?" | Multiple choice (4-5 options) | Where they are right now. Examples: "I'm a student / first 5 years of career / manager / senior leader / executive" or "Never run a marathon / run 1-3 / seasoned runner" |
+| **Q2** | "Which describes your desired outcome you'd like to achieve in the next 90 days?" | Select from list | The #1 thing driving their decisions. Examples: "I want to lose weight" / "I want to achieve my first 7 hours of deep sleep" |
+| **Q3** | "What is the obstacle you think is stopping you? Or what have you tried that hasn't worked?" | Multiple choice (3-4 options) | Their biggest perceived obstacle to success |
+| **Q4** | "Which solution do you think would suit you best?" | Multiple choice | **Implies budget.** Examples: "I want education and training / one-to-one coaching / software / someone to do it all for me." A book buyer = $10-$20. "Do it all for me" = $10,000-$20,000 |
+| **Q5** | "Is there anything else you think we need to know about?" | Open text box | Incredibly valuable. People write things like: "I've already read your book and want to get started" or "I have a budget but have to spend it by end of the month" |
+
+> Priestley notes: If they've answered all 14 other questions, they're going to give you really good relevant information in this open box too.
+
+---
+
+#### Part 3: Dynamic Results (8:19)
+
+Called "dynamic" because the entire results page **changes depending on how they answered the questions.** Three components:
+
+**1. The Big Reveal — Overall Result**
+
+Visual indicator of their performance:
+- Speedometer showing "You got 75% out of 100%"
+- Thermometer showing cold / warm / hot
+- Dynamic text: "Congratulations, you scored really well" OR "Oh no, you've got a lot of room to improve" OR "Well done, you've got strong foundations but plenty of room to improve"
+
+**2. Three Insights**
+
+Based on how they answered, present 3 things you want them to know. These change per respondent.
+
+**3. Next Steps (tiered by qualification)**
+
+| Lead Quality | Recommended Next Step |
+|-------------|----------------------|
+| **Highly qualified** | Offer a one-to-one meeting |
+| **Middle of the road** | Offer a group presentation or group event |
+| **Wrong for your business** | Give them content — send to a video, podcast episode, or recommend a book |
+
+**Bottom of results page:** All contact information, social media links, website link — so people can bounce around to other pages.
+
+---
+
+#### Part 4: Dashboard & Traffic (10:34)
+
+**The Dashboard captures everything:**
+- How people answered all questions
+- How they scored
+- Where they are (location)
+- Whether they put in real contact information
+- The recommended next step
+- All laid out in one view
+
+**The Tool — ScoreApp:**
+- Priestley is co-founder of scoreapp.com
+- 150 templates based on this strategy
+- Free downloadable book: *Scorecard Marketing*
+- Online courses explaining the system
+- Customer success team for setup help
+- Most people set up in 10-30 minutes
+
+**Traffic (mentioned briefly — separate video):**
+- Common question: "How do I send people to this landing page?"
+- He references a separate video: [How To Get Noticed](https://www.youtube.com/watch?v=WiTIgjYxWbE)
+- That video covers paid + organic traffic, starting small and scaling big
+- **This is a gap in the current video** — traffic strategy is not covered here
+
+---
+
+## Part 2: How IriScale Can Utilize This Strategy
+
+### Why This Is a Strong Fit for IriScale
+
+1. **IriScale is a SaaS platform** — Priestley specifically lists software companies as a proven use case for this system
+2. **IriScale has 17 distinct features** across 5 suites — the assessment can help prospects self-identify which features solve their problems and segment themselves by readiness
+3. **IriScale already has a TOFU/MOFU/BOFU framework** (Topic Strategy) — the assessment naturally sits as a BOFU conversion tool with supporting content feeding into it
+4. **IriScale can "eat its own cooking"** — use IriScale's own features (Keyword Repository, Content Architecture, Social Posts, Opportunity Agent) to drive traffic to the assessment
+
+### Proposed Assessment: "The AI Content Marketing Scorecard"
+
+---
+
+#### Landing Page — Applied to IriScale
+
+**Frustration Hook Options:**
+
+| Hook | Formula Applied |
+|------|----------------|
+| Option A | "Feeling frustrated that your content isn't generating leads even though you're publishing consistently?" |
+| Option B | "Feeling frustrated that your competitors are showing up in AI search results even though you've invested in SEO?" |
+| Option C | "Feeling frustrated that you can't scale content production even though you're willing to invest in tools?" |
+
+**Results Hook Options:**
+
+| Hook | Formula Applied |
+|------|----------------|
+| Option A | "Are you ready to have AI handle your content marketing from research to publishing?" |
+| Option B | "Are you ready to show up when customers ask ChatGPT, Perplexity, or Claude about your industry?" |
+| Option C | "Are you ready to turn your content into a consistent lead generation engine?" |
+
+**Subheading:** "Answer 15 questions to find out where your content marketing is falling short and get a personalized action plan to fix it."
+
+**Value Proposition — 3 Key Areas to Measure and Improve:**
+
+| Area | What We Measure | IriScale Features That Solve It |
+|------|-----------------|--------------------------------|
+| **1. AI Search Visibility** | Are you showing up when people ask AI assistants about your industry? | Search Ranking Intelligence, AI Optimization Questions, AI Optimization Answers |
+| **2. Content Strategy & Production** | Do you have a structured plan and the ability to produce content at scale? | Knowledge Base, Keyword Repository, Content Architecture, Topic Strategy, Articles |
+| **3. Social Presence & Opportunity Capture** | Are you actively finding and engaging prospects where they're talking? | Opportunity Agent, Social Posts, Social Scheduler, Connections |
+
+**Credibility Section:**
+
+- IriScale platform: 5 suites, 17+ features, AI-powered across the entire content lifecycle
+- Tracks visibility across 5 AI search platforms simultaneously (ChatGPT, Claude, Gemini, Perplexity, Grok)
+- AI-generated competitive intelligence including sales battle cards
+- Cite customer results/metrics when available (TBD — need real data)
+
+**CTA:** "Start the quiz. It only takes 3 minutes. It's completely free. Get immediate recommendations on how you can improve."
+
+**Expected conversion:** 20-40% of landing page visitors start the quiz (Priestley's benchmark).
+
+---
+
+#### Questionnaire — Applied to IriScale
+
+**Part A — Contact Info:**
+
+| Field | Required? | IriScale-Specific Note |
+|-------|-----------|------------------------|
+| Name | Yes | |
+| Email | Yes | |
+| Location | Auto (IP) | Useful for regional targeting |
+| Company name | Yes (add this) | Helps personalize follow-up |
+| Company website URL | Yes (add this) | Could be auto-ingested into IriScale Knowledge Base for personalized demo |
+| Phone number | Optional | |
+
+**Part B — 10 Best Practice Questions (generate the score):**
+
+These ask if they're doing 10 things they should be doing for effective AI-powered content marketing. Each maps to an IriScale capability:
+
+| # | Best Practice Question | Best Answer (what "yes" looks like) | IriScale Feature |
+|---|----------------------|-------------------------------------|------------------|
+| 1 | Do you have a centralized knowledge base that all your content is generated from? | Yes — single source of truth for all content | Knowledge Base |
+| 2 | Do you actively research and manage keywords with volume, competition, and intent data? | Yes — with AI-powered research | Keyword Repository |
+| 3 | Do you track how your company appears in AI search results (ChatGPT, Perplexity, Claude, Gemini, Grok)? | Yes — across all major AI platforms | Search Ranking Intelligence |
+| 4 | Do you have documented, regularly updated competitive intelligence on your key competitors? | Yes — automated and comprehensive | Competitor Analysis |
+| 5 | Do you have a structured content architecture (page hierarchy) for your website? | Yes — AI-planned with SEO settings | Content Architecture |
+| 6 | Do you know what questions your customers are asking AI assistants about your industry? | Yes — and we create optimized answers | AI Optimization Questions |
+| 7 | Can you generate on-brand blog articles at scale with quality control? | Yes — AI-generated with human review | Articles |
+| 8 | Do you monitor social platforms (Reddit, etc.) for real-time sales opportunities in your space? | Yes — automated monitoring and alerts | Opportunity Agent |
+| 9 | Do you have documented brand voice and writing guidelines that all content follows? | Yes — auto-generated and enforced | Brand Voice & Writing Guidelines |
+| 10 | Can you create and schedule social content across multiple platforms from one place? | Yes — 7 platforms with campaign management | Social Posts + Scheduler |
+
+> Scoring: Each "yes" or strong answer adds points. Score out of 100% based on how many best practices they follow.
+
+**Part C — 5 Qualifying Questions (qualify the lead):**
+
+| # | Question | Options | What It Reveals for Sales |
+|---|----------|---------|---------------------------|
+| **Q1** | Which best describes your current content marketing situation? | (a) Just getting started — no real system yet (b) We create content but it's ad hoc and inconsistent (c) We have a system but it's plateauing / not scaling (d) We have a mature operation but want to add AI automation | Maturity / readiness level |
+| **Q2** | What is the #1 outcome you want to achieve in the next 90 days? | (a) Increase organic search traffic (b) Show up in AI search results (c) Scale content production without adding headcount (d) Get better competitive intelligence (e) Automate social media management (f) Build a content-to-lead pipeline | Primary motivation — maps directly to IriScale features |
+| **Q3** | What's the biggest obstacle stopping you? | (a) We don't have the right tools (b) Our team is too small (c) We don't know where to start with AI (d) Budget constraints (e) Content quality concerns (f) We've tried tools before and they didn't work | Pain point — informs sales approach |
+| **Q4** | Which solution would suit you best? | (a) Self-serve software platform I can learn myself (b) Software with guided onboarding and support (c) A fully managed service — do it all for me (d) Training and education first, then tools (e) Not sure yet — need to learn more | **Budget signal.** Self-serve = lower tier. Managed service = premium. "Not sure" = needs nurture |
+| **Q5** | Is there anything else about your content marketing challenges we should know? | Open text box | Gold mine. People share timelines, budgets, specific frustrations, prior tool experience |
+
+---
+
+#### Dynamic Results — Applied to IriScale
+
+**The Big Reveal:**
+
+Visual speedometer or progress bar showing "AI Content Marketing Readiness Score" out of 100%.
+
+| Score Range | Dynamic Message |
+|-------------|-----------------|
+| **80-100%** | "Congratulations — you've got strong foundations. You're ready to supercharge your content marketing with AI automation." |
+| **50-79%** | "You've got solid foundations, but there's significant room to improve. A few key changes could dramatically increase your results." |
+| **0-49%** | "There's a lot of opportunity ahead. Most businesses in your position see rapid improvement once they put the right systems in place." |
+
+**Three Personalized Insights (change based on their weakest areas):**
+
+| Weak Area | Insight |
+|-----------|---------|
+| AI Search Visibility (Q3, Q6 scored low) | "You're invisible to AI search. When your customers ask ChatGPT or Perplexity about your industry, your competitors are showing up — not you. IriScale tracks your visibility across 5 AI platforms and helps you create optimized answers that get cited." |
+| Content Strategy (Q1, Q2, Q5, Q7 scored low) | "Without a centralized knowledge base and structured content plan, you're creating content in the dark. IriScale's Content Architect AI generates a complete website hierarchy from your business data in minutes." |
+| Social & Opportunity Capture (Q8, Q10 scored low) | "Right now, your potential customers are discussing their problems on Reddit and social media — and you're not in the conversation. IriScale's Opportunity Agent monitors these platforms and gives you AI-generated responses to engage with." |
+
+**Next Steps (tiered by qualifying answers):**
+
+| Qualification | Trigger (from Part C answers) | Next Step |
+|--------------|-------------------------------|-----------|
+| **Hot lead** | Maturity = plateauing or mature + Solution = software or managed service + Clear desired outcome | "Book a personalized demo — we'll show you IriScale configured for your specific industry" → Route to sales |
+| **Warm lead** | Maturity = ad hoc or growing + Solution = guided onboarding or not sure | "Watch a 5-minute platform walkthrough" + enter email nurture sequence showing relevant features based on their weak areas |
+| **Cool lead** | Maturity = just starting + Solution = training first or not sure + Obstacle = budget | "Download our free AI Content Marketing Playbook" + monthly educational newsletter |
+
+**Bottom of page:** IriScale website link, social media profiles, contact email — let people explore further.
+
+---
+
+#### Promotion & Traffic — Using IriScale's Own Features
+
+| IriScale Feature | How It Drives Assessment Traffic |
+|-----------------|----------------------------------|
+| **Keyword Repository** | Research high-volume keywords: "AI content marketing tools," "content marketing assessment," "AI SEO platform," "how to show up in AI search results" — use for paid ads and organic targeting |
+| **AI Optimization Questions** | Discover what prospects are asking AI assistants about content marketing → generate answers that include CTA to take the assessment |
+| **Content Architecture** | Build a content hub with supporting pages: "What is AI content marketing?", "How to audit your content strategy," "AI search visibility guide" — all linking to the assessment |
+| **Topic Strategy** | Generate full-funnel topics: TOFU ("What is AI SEO?") → MOFU ("How to choose a content marketing platform") → BOFU (the assessment itself) |
+| **Articles** | AI-generate supporting blog articles for each topic, targeting assessment-related keywords |
+| **Social Posts + Scheduler** | Create and schedule promotional content for the assessment across 7 platforms. Campaign intent: "Promote" with KPI: "CTR" or "Conversions" |
+| **Opportunity Agent** | Set up agents monitoring Reddit for discussions about content marketing tools, AI SEO, content scaling challenges → engage with link to assessment |
+| **Competitor Analysis** | Use battle card data to sharpen assessment positioning vs. competitors (e.g., "unlike [Competitor], IriScale covers the full content lifecycle") |
+
+---
+
+## Part 3: Implementation Plan
+
+### Tool Decision: How to Build the Assessment
+
+| Option | Pros | Cons | Recommendation |
+|--------|------|------|----------------|
+| **ScoreApp** | Quick setup (10-30 min per Priestley), 150 templates, proven system, built-in dashboard, dynamic results logic included | Monthly cost, external dependency, limited branding, another tool to manage, data lives outside IriScale | **Start here for speed** |
+| **Typeform / Tally + custom scoring** | Better branding control, cheaper, own the data | Manual scoring logic, no built-in dashboard, more setup | Good alternative if ScoreApp too expensive |
+| **Build into IriScale** | Ultimate dog-fooding, could become customer feature, full data ownership, auto-ingest website URL into Knowledge Base | Development time, not core focus | **Long-term vision** — build once validated |
+
+> **Recommended approach:** Launch with ScoreApp to validate the concept fast. Once you have conversion data and proven question set, evaluate building it into IriScale as a lead gen feature that IriScale customers could also use for their own businesses.
+
+### Lead Nurture Integration
+
+| Lead Tier | Email Sequence | Content |
+|-----------|---------------|---------|
+| **Hot** | Immediate booking confirmation + sales prep | Demo booking link, case studies, "what to expect" email |
+| **Warm** | 5-7 email drip over 2 weeks | Email 1: Platform walkthrough video. Emails 2-5: One feature deep-dive per email matched to their weak areas. Email 6: Case study. Email 7: Demo offer |
+| **Cool** | Monthly newsletter + quarterly re-assessment | Educational content, industry insights, quarterly "retake the assessment" CTA to re-engage |
+
+### Metrics to Track
+
+| Metric | Priestley's Benchmark | Our Target |
+|--------|----------------------|------------|
+| Landing page → quiz start rate | **20-40%** | TBD |
+| Quiz completion rate | Not stated | TBD |
+| Lead → demo booking rate | Not stated | TBD |
+| Demo → customer conversion rate | N/A | TBD |
+| Cost per lead (paid) | Not stated | TBD |
+| Organic traffic to assessment | N/A | TBD |
+
+---
+
+## Part 4: Open Questions
+
+1. **Does IriScale have email marketing / CRM integration?** This strategy requires automated email follow-up based on score and tier. What tools are in place?
+
+2. **Who is the primary ICP?** The questions above assume marketing managers, content strategists, and business owners at SMBs. Is this accurate?
+
+3. **What is IriScale's pricing model?** Q4 (preferred solution) needs to align with actual pricing tiers for proper lead segmentation.
+
+4. **Can IriScale auto-ingest a prospect's website URL?** If someone enters their company URL in the assessment, could IriScale auto-generate a Knowledge Base and show them a personalized demo with their own data? This would be a killer conversion tool.
+
+5. **What credibility assets exist?** Case studies, customer testimonials, usage statistics, media mentions — needed for the landing page credibility section.
+
+6. **ScoreApp pricing?** Need to evaluate cost vs. expected lead volume before committing.
+
+7. **What is IriScale's current traffic?** Determines if paid traffic is needed from day one or if organic channels can seed initial visitors.
+
+8. **GDPR / compliance considerations?** Collecting company URLs, email, location data — what compliance requirements apply?
+
+9. **Priestley's traffic video:** He references a separate video on [How To Get Noticed](https://www.youtube.com/watch?v=WiTIgjYxWbE) that covers paid and organic traffic strategy. Worth reviewing for the traffic-driving component.
+
+---
+
+## Part 5: Next Steps
+
+1. **Validate the ICP and assessment angle** — is "AI Content Marketing Readiness" the right framing, or should it be narrower (e.g., "AI Search Visibility Scorecard")?
+2. **Refine the 15 questions** with input from sales/product team
+3. **Choose implementation tool** — evaluate ScoreApp pricing and setup
+4. **Write landing page copy** using the exact formulas from Part 1
+5. **Build the scoring logic** — weight the 10 best practice questions, map score ranges to dynamic messages
+6. **Design the dynamic results page** — big reveal + 3 insights + tiered next steps
+7. **Set up email nurture sequences** for each tier
+8. **Use IriScale to create supporting content** — Keyword Repository → Content Architecture → Articles → Social Posts
+9. **Set up Opportunity Agent** to monitor relevant social conversations
+10. **Soft launch** — test with a small audience, measure conversion at each step
+11. **Watch Priestley's traffic video** and incorporate traffic strategy
+12. **Iterate and scale** — refine questions and scoring based on conversion data
+
+---
+
+## References
+
+- **Video:** [The $1 Million Landing Page (Works For Normal People)](https://www.youtube.com/watch?v=az1Zh-FNSno) — Daniel Priestley (full transcript reviewed)
+- **Traffic Video:** [How To Get Noticed](https://www.youtube.com/watch?v=WiTIgjYxWbE) — Referenced in the video, not yet reviewed
+- **Tool:** [ScoreApp](https://www.scoreapp.com/) — Priestley's quiz/assessment platform (he is co-founder)
+- **Book:** *Scorecard Marketing* by Daniel Priestley — free download at scoreapp.com
+- **Example:** [KPI Assessment](https://scorecard.dent.global/) — Priestley's own live scorecard
+- **IriScale Features:** `iriscale _app_assessment/modules/` — full feature documentation
+- **IriScale Marketing:** `iriscale _app_assessment/marketing_strategies/product_features_marketing.md`
+
+---
+
+*Document Created: February 12, 2026*  
+*Source: Full video transcript + IriScale app assessment documentation*  
+*Status: DRAFT — Pending ICP validation and team input*
