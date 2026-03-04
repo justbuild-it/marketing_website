@@ -1,7 +1,7 @@
 # Keyword Repository
 
 > **Status:** ✅ Documented  
-> **Last Updated:** 2026-01-17  
+> **Last Updated:** 2026-03-01  
 > **URL Pattern:** `/projects/{id}/keywords`
 
 ---
@@ -9,6 +9,8 @@
 ## Overview
 
 The Keyword Repository is a centralized hub for managing SEO and marketing keywords. It uses sophisticated AI agents with multiple APIs (including Google keyword data) to generate a comprehensive set of keywords, while also allowing manual entry for pre-existing keyword lists.
+
+**March 2026 Update:** Keywords now include an AI-generated **Priority** level (P1/P2/P3) and a **Priority Score** (0–1) that ranks each keyword's relevance to the company. Keywords processed through this AI priority pipeline are **auto-approved**, accelerating customer account setup.
 
 ---
 
@@ -26,17 +28,16 @@ The Keyword Repository is a centralized hub for managing SEO and marketing keywo
 │             │ + Add Source  ├───────────────────────────────────────────┤
 │             │               │ Keyword Table                             │
 │             ├───────────────┤ - Keyword                                 │
-│             │ Actions       │ - Primary                                 │
-│             │ - Approve     │ - Volume                                  │
-│             │ - Reject      │ - Competition                             │
-│             │ - AI Opt Ques │ - Category                                │
-│             │ - Expand PKWs │ - Products/Services                       │
-│             ├───────────────┤ - Search Intent                           │
-│             │ Link Products │ - CPC                                     │
-│             │ & Services    │ - Approval                                │
-│             │               │ - Is Competitor                           │
+│             │ Actions       │ - Priority (P1/P2/P3)                     │
+│             │ - Approve     │ - Priority Score (0–1)                    │
+│             │ - Reject      │ - AI Questions                            │
+│             │ - AI Opt Ques │ - Volume                                  │
+│             ├───────────────┤ - Competition                             │
+│             │ Link Products │ - Products/Services                       │
+│             │ & Services    │ - CPC                                     │
+│             │               │ - Approval                                │
 │             │               ├───────────────────────────────────────────┤
-│             │               │ Total results: 458                        │
+│             │               │ Total results: 332                        │
 └─────────────┴───────────────┴───────────────────────────────────────────┘
 ```
 
@@ -64,7 +65,6 @@ The Keyword Repository is a centralized hub for managing SEO and marketing keywo
 | **Approve** | Marks selected keywords as approved for use throughout the tool |
 | **Reject** | Marks selected keywords as rejected (excluded from use) |
 | **AI Optimization: Questions** | Researches frequently asked questions related to selected keywords |
-| **Expand Primary KW's** | *(Deprecated - being replaced by Advanced AI Keyword Agent)* |
 
 ### Left Panel - Link Products & Services
 | Element | Description |
@@ -82,37 +82,52 @@ The Keyword Repository is a centralized hub for managing SEO and marketing keywo
 
 ### Main Panel - Data Table
 
-#### Column Definitions
+#### Column Definitions (Default Visible)
 | Column | Type | Description |
 |--------|------|-------------|
 | **Keyword** | Text + Checkbox | The search term; checkbox for selection |
-| **Primary** | Checkbox | Marks as primary keyword |
+| **Priority** | Badge (P1/P2/P3) | AI-assigned priority level; clickable dropdown to change (P1, P2, P3, Unprioritized) |
+| **Priority Score** | Number (0–1) | AI-calculated relevance score; hover shows "Relevancy reasoning" tooltip with AI explanation |
+| **AI Questions** | Link / Button | "View (N)" link to existing questions, or "Submit" button to generate new ones |
 | **Volume** | Number | Monthly search volume |
-| **Competition** | Badge | High (red) / Low (yellow) indicator |
-| **Category** | Text | Product category grouping |
+| **Competition** | Badge | High (red) / Medium / Low (yellow) indicator |
 | **Products/Services** | Text | Linked product or service name |
-| **Search Intent** | Badge | navigational / commercial / informational |
 | **CPC** | Currency | Cost per click value |
 | **Approval** | Status | Approved (green) / Review (yellow) |
+
+#### Hidden Columns (Available via Columns toggle)
+| Column | Type | Description |
+|--------|------|-------------|
+| **Search Intent** | Badge | navigational / commercial / informational |
+| **High Bid** | Currency | High bid estimate |
+| **Low Bid** | Currency | Low bid estimate |
 | **Is Competitor** | Yes/No | Whether keyword came from competitor analysis |
+| **SE Type** | Text | Search engine type |
+| **Language** | Text | Keyword language |
+| **Created At** | Date | When keyword was created |
+
+#### Removed Columns (since Jan 2026)
+| Column | Notes |
+|--------|-------|
+| **Primary** | Replaced by Priority system |
+| **Category** | No longer in column list |
 
 ---
 
-## Example Data (Shuk Rentals)
+## Example Data (Iriscale GTM v0.3)
 
-| Keyword | Volume | Competition | Products/Services | Intent | CPC | Status | Competitor |
-|---------|--------|-------------|-------------------|--------|-----|--------|------------|
-| affordable renters insurance | 74,000 | high | Renters Insurance | navigational | $32.78 | Approved | Yes |
-| property management software | 27,100 | low | Property Management | navigational | $118.82 | Approved | Yes |
-| innago | 22,200 | low | - | navigational | $5.18 | Review | No |
-| background check for tenants | 12,100 | high | Application & Screenings | navigational | $15.09 | Review | Yes |
-| background check for renters | 12,100 | high | TransUnion Tenant Screening Reports | navigational | $15.09 | Review | Yes |
-| tenant screening service | 8,100 | low | TransUnion Tenant Screening Reports | navigational | $13.97 | Review | Yes |
-| online rent payment | 6,600 | low | Online Rent Collection | navigational | $11.33 | Review | Yes |
-| buildium property management software | 4,400 | low | - | navigational | $35.22 | Review | No |
-| credit check for renters | 2,900 | high | Tenant screening | commercial | $15.70 | Review | No |
+| Keyword | Priority | Score | AI Questions | Volume | Competition | Products/Services | CPC | Approval |
+|---------|----------|-------|-------------|--------|-------------|-------------------|-----|----------|
+| ai seo tools | P1 | 0.87 | View (15) | 2,400 | low | Programmatic SEO +1 | $30.63 | Approved |
+| best ai seo tools | P1 | 0.85 | View (20) | 720 | low | Programmatic SEO +1 | $22.51 | Approved |
+| ai for marketing | P1 | 0.84 | View (24) | 4,400 | medium | Social Studio +1 | $18.56 | Approved |
+| generative ai platform | P1 | 0.82 | View (35) | 9,900 | low | AI Visibility Analytics +1 | $15.91 | Approved |
+| ai in digital marketing | P1 | 0.82 | View (20) | 2,400 | medium | Social Studio +1 | $18.92 | Approved |
+| marketing ai | P2 | 0.80 | Submit | 1,600 | high | Social Studio +1 | $22.89 | Approved |
+| free keyword research tool | P2 | 0.78 | Submit | 8,100 | medium | Keywords Explorer | $9.27 | Approved |
 
-**Total Keywords:** 458
+**Total Keywords:** 332
+**Project:** Iriscale GTM v0.3
 
 ---
 
@@ -125,6 +140,16 @@ The Keyword Repository is a centralized hub for managing SEO and marketing keywo
 | **Research Methods** | Multiple methods to develop world-class keyword sets |
 | **Manual Entry** | Supported - for pre-existing keywords or known customer searches |
 
+### Priority System (NEW - March 2026)
+| Aspect | Details |
+|--------|---------|
+| **Priority Levels** | P1 (highest), P2, P3, Unprioritized |
+| **Priority Score** | 0–1 numerical score generated by AI algorithm |
+| **Score Reasoning** | Hover over score to see AI-generated "Relevancy reasoning" tooltip |
+| **Auto-Approval** | Keywords processed through the priority pipeline are automatically approved |
+| **Purpose** | Selects the best keyword in any situation; accelerates customer account setup |
+| **User Override** | Priority level can be manually changed via dropdown on each keyword |
+
 ### Sources Panel
 | Aspect | Details |
 |--------|---------|
@@ -135,7 +160,7 @@ The Keyword Repository is a centralized hub for managing SEO and marketing keywo
 | Status | Meaning |
 |--------|---------|
 | **Review** | Pending user decision |
-| **Approved** | Keyword used throughout the tool |
+| **Approved** | Keyword used throughout the tool (auto-set for priority-pipeline keywords) |
 | **Rejected** | Keyword excluded from use |
 
 ### AI Optimization: Questions
@@ -146,12 +171,6 @@ The Keyword Repository is a centralized hub for managing SEO and marketing keywo
 | **Output** | Results appear in "AI Optimization Questions" menu page |
 | **Purpose** | Find questions users ask AI search tools (ChatGPT, etc.) |
 | **Value** | Generate answers for website publication to capture AI-driven search traffic |
-
-### Expand Primary KW's
-| Aspect | Details |
-|--------|---------|
-| **Status** | Being deprecated |
-| **Replacement** | Advanced AI Keyword Agent |
 
 ### Products & Services Linking
 | Aspect | Details |
@@ -207,6 +226,8 @@ The Keyword Repository is a centralized hub for managing SEO and marketing keywo
 | Capability | Description |
 |------------|-------------|
 | **AI-Powered Research** | Sophisticated keyword discovery using multiple APIs |
+| **AI Priority Scoring** | Automatic relevance ranking with reasoning for each keyword |
+| **Auto-Approval Pipeline** | Priority-scored keywords are automatically approved for immediate use |
 | **Bulk Management** | Handle hundreds of keywords with sorting/filtering |
 | **Approval Workflow** | Control which keywords are active |
 | **Product Association** | Link keywords to products for targeted marketing |
@@ -266,26 +287,7 @@ Select keyword(s) → Click "AI Optimization: Questions" → Review in AI Questi
 
 | Screenshot | Description |
 |------------|-------------|
-| `keyword_repository_main.png` | Main interface with keyword table |
-
----
-
-## UI Improvement Opportunities
-
-### High Priority
-1. **Visual Status Indicators** - Add icons alongside color for accessibility
-2. **Bulk Actions** - Select all/none, bulk approve/reject
-3. **Export Functionality** - Export filtered keywords to CSV
-
-### Medium Priority
-4. **Grouping Options** - Group by product, competition level, or intent
-5. **Trend Data** - Show volume trends over time
-6. **Quick Filters** - Preset filters for common views (high volume, approved only)
-
-### Low Priority
-7. **Drag-Drop Reordering** - Prioritize keyword list manually
-8. **Notes/Tags** - Add custom notes or tags to keywords
-9. **Comparison View** - Side-by-side keyword comparison
+| `keyword_repository_main.png` | Main interface with keyword table showing Priority and Priority Score columns |
 
 ---
 
@@ -294,4 +296,11 @@ Select keyword(s) → Click "AI Optimization: Questions" → Review in AI Questi
 - [Knowledge Base](./knowledge_base.md) - Source of competitor data
 - [AI Optimization Questions](./ai_optimization_questions.md) - Downstream question generation
 - [Search Ranking](./search_ranking.md) - Track keyword performance
+
+---
+
+*Reassessed by: Cascade*  
+*Date: March 1, 2026*  
+*Version: 1.1*  
+*Context: Iriscale → Iriscale GTM v0.3*
 

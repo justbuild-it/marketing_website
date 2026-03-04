@@ -336,15 +336,21 @@ The Internal section allows users to:
 | **Design System** | Base spacing unit, border radius, component styling (inputs) |
 | **Technical Details** | Frameworks, metadata (Twitter Card, viewport, OG tags, etc.) |
 
-#### Example Data (Shuk Rentals)
+#### Example Data (Iriscale)
 
 | Element | Value |
 |---------|-------|
-| Primary Color | `#15B8A6` |
-| Accent Color | `#0000EE` |
-| Primary Font | Athletics |
-| H1 Size | 64px |
-| Border Radius | 16px |
+| Primary Color | `#CBD5E1` |
+| Accent Color | `#1A192B` |
+| Background Color | `#1D2025` |
+| Text Primary Color | `#1D2025` |
+| Link Color | `#1A192B` |
+| Primary Font | Inter Variable |
+| H1 Size | 18px |
+| H2 Size | 36px |
+| Body Size | 16px |
+| Border Radius | 0px |
+| Base Spacing Unit | 4px |
 
 #### Usage by Platform
 
@@ -376,35 +382,39 @@ The Internal section allows users to:
 | **Common Mistakes to Avoid** | List of writing pitfalls |
 | **Pre-Publish Checklist** | 10-point quality checklist |
 
-#### Core Voice Pillars (Shuk Example)
+#### Core Voice Pillars (Iriscale Example)
 
 | Pillar | What it means |
 |--------|---------------|
-| Practical playbooks | Steps, checklists, clear definitions |
-| Predictability-first | Reduce uncertainty, set expectations early |
-| Transparent and proof-backed | Clear about fees/limits, support claims with proof |
-| Calmly confident | Measured certainty, no hype or panic |
-| Fair-minded | Avoid stereotypes, keep disputes neutral |
+| Confident category leader | Decisive, no hedging; avoid "maybe/hopefully" |
+| Evidence-forward (data-driven) | Prefer numbers, benchmarks, methodology; proof near claims |
+| Enterprise-ready trust | Security/compliance and reliability are features, not footnotes |
+| Clear over clever | Define acronyms; translate jargon; replace metaphor with mechanism |
+| Decisively helpful | Guide to the next best action without being pushy |
 
 #### Tone by Context Table
 
 | Content Type | Tone | Formality |
 |--------------|------|-----------|
-| Website marketing | Confident, benefit-led | Medium |
-| Blog/guides | Practical, instructional | Medium-High |
-| Marketing email | Value-first | Medium |
-| Support reply | Empathetic, action-led | Medium |
-| Social | Educational, light humor OK | Low-Medium |
+| Website / Landing page | Confident, benefit-led | Medium |
+| Blog | Skimmable; "Why it matters / How it works / What's next" | Medium-High |
+| Social | Short lines; one idea per post; authoritative | Low-Medium |
+| Sales email | 75–150 words; one primary CTA | Medium |
+| Marketing email | Personal-but-professional; scannable | Medium |
+| Product/UX | As short as possible; specific verbs | High |
+| Support | Clear steps; time-bound updates | Medium |
 
 #### Format Specs by Content Type
 
 | Format | Length | Emoji | Notes |
 |--------|--------|-------|-------|
-| Long blog | 1,200–2,500 words | 0 | One CTA; transparent tradeoffs |
-| Marketing email | 100–200 words | 0 | Value-first subject line |
-| Transactional email | 40–120 words | 0 | Confirm action + next step |
-| Product UI | As short as possible | 0 | Verb + object buttons |
-| Social | 20–80 words | 2–4 | Educational + proof |
+| Landing page | Short sections; 6–12 word headlines | 0 | Proof blocks near CTAs; minimal fluff |
+| Blog | Skimmable | 0–2 (if shared) | Add "Key takeaways"; define acronyms |
+| Social | Short lines; one idea per post | 0–2 | Authoritative, no inside jokes; minimal emoji |
+| Sales email | 75–150 words typical | 0 | One primary CTA; respectful follow-up |
+| Marketing email | 100–200 words typical | 0 | Personal-but-professional; scannable |
+| Product/UX | As short as possible | 0 | Specific verbs on buttons; define metrics consistently |
+| Support | Clear steps; time-bound updates | 0 | Acknowledge impact once; move to resolution |
 
 #### Usage by Platform
 
@@ -448,7 +458,7 @@ The Internal section allows users to:
 
 ---
 
-*Assessed by: Cascade*  
-*Date: January 28, 2026*  
-*Version: 1.1*  
-*Context: Shuk Rentals → Shuk GTM v0.2*
+*Reassessed by: Cascade*  
+*Date: March 1, 2026*  
+*Version: 1.2*  
+*Context: Iriscale → Iriscale GTM v0.3*

@@ -1,88 +1,214 @@
 # Social Posts
 
 > **Status:** ✅ Documented  
-> **Last Updated:** 2026-01-17  
+> **Last Updated:** 2026-03-01  
 > **URL Pattern:** `/projects/{id}/socials`
 
 ---
 
 ## Overview
 
-Social Media Posts is an AI-powered social content generator that creates platform-optimized posts from articles, URLs, or custom content. The feature includes campaign management, strategy brief generation, audience targeting, and real-time mobile previews.
+Social Media Posts is an AI-powered social content generator that creates platform-optimized posts from articles, URLs, or custom content. The feature was **completely reworked** in February–March 2026 with a new post sets–based architecture that simplifies creation, editing, selection, and scheduling.
+
+**March 2026 Update:** The UI was rebuilt from a single 3-panel creation page to a multi-page flow: **Post Sets list → Create wizard → Post Set detail/review**. Posts are now organized into "post sets" (groups of posts generated from a single source), with bulk actions for approval and scheduling.
 
 ---
 
-## Page Layout
+## Page Layout – Post Sets List (Main Page)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ Header: Org/Project Selector                                            │
 ├─────────────┬───────────────────────────────────────────────────────────┤
-│             │ Social Media Posts                                        │
-│             │ Generate AI-powered social media content for [Project]    │
+│             │ Social Media Posts              [+ Create New Post]        │
+│             │ Create and manage social posts to promote your content    │
 │   Sidebar   ├───────────────────────────────────────────────────────────┤
-│             │ ┌─────────────────┬─────────────────┬─────────────────┐   │
-│             │ │ Content Input   │ Strategy Brief  │ Mobile Preview  │   │
-│             │ ├─────────────────┼─────────────────┼─────────────────┤   │
-│             │ │ Campaign Name   │ Audience/Voice  │ [Platform UI]   │   │
-│             │ │ Sub campaign    │ - Buyer persona │                 │   │
-│             │ │ Source URL      │ - Target market │ Your Company    │   │
-│             │ │ Destination URL │ - Differentiator│ Company • 2h    │   │
-│             │ │ Instructions    │ - Brand Voice   │                 │   │
-│             │ │ Intent/KPI      │                 │ [Post content]  │   │
-│             │ │ [Platforms]     │ [Generate       │                 │   │
-│             │ │ [Generate]      │  Strategy]      │ Like Comment    │   │
-│             │ └─────────────────┴─────────────────┴─────────────────┘   │
+│             │ [Filter by tags]          [Search post sets...]           │
+│             ├───────────────────────────────────────────────────────────┤
+│             │ ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    │
+│             │ │ Post Set 1   │  │ Post Set 2   │  │ Post Set 3   │    │
+│             │ │ [in] 3 posts │  │ [in][X] 6p   │  │ [in] 21p     │    │
+│             │ │ iriscale.com │  │ iriscale.com │  │ iriscale.com │    │
+│             │ │ #tags        │  │ #ai #seo     │  │ #Analytics.. │    │
+│             │ │ 2/27/2026    │  │ 2/23/2026    │  │ 2/20/2026    │    │
+│             │ │      Open →  │  │      Open →  │  │      Open →  │    │
+│             │ └──────────────┘  └──────────────┘  └──────────────┘    │
 └─────────────┴───────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## UI Components
+## UI Components – Post Sets List
 
-### Content Input Panel
-| Field | Description |
-|-------|-------------|
-| **Campaign Name** | Group posts by campaign |
-| **Sub campaign** | Campaign subdivision |
-| **Source URL** | Article/content source |
-| **Destination URL** | Landing page link |
-| **Optional Instructions** | Custom AI guidance |
-| **Intent** | Promote, Educate, Announce, Launch, Nurture, Engage |
-| **KPI** | CTR, Engagement, Reach, Impressions, Conversions, etc. |
-| **Allow emojis** | Toggle emoji inclusion |
-| **Target Platform** | Facebook, Instagram, X, LinkedIn, TikTok, YouTube, Reddit |
-
-### Strategy Brief Panel
-| Section | Description |
-|---------|-------------|
-| **Promote/CTR Tags** | Intent and KPI indicators |
-| **Buyer Persona** | Auto-populated from Knowledge Base |
-| **Target Market** | Auto-populated audience data |
-| **Differentiators** | Auto-populated unique value props |
-| **Brand Voice** | Auto-populated tone guidelines |
-
-### Mobile Preview Panel
+### Header
 | Element | Description |
 |---------|-------------|
-| **Dark Mode Toggle** | Preview appearance |
-| **Platform Preview** | Realistic post mockup |
-| **Show Visual Asset** | Toggle image display |
-| **Post Counter** | Selected post / Total posts / Images |
+| **Title** | "Social Media Posts" |
+| **Subtitle** | "Create and manage social posts to promote your content" |
+| **Create New Post** | Purple button → navigates to Create wizard |
+
+### Toolbar
+| Element | Description |
+|---------|-------------|
+| **Filter by tags** | Text input with autocomplete for tag-based filtering |
+| **Search post sets** | Text search across post set names |
+
+### Post Set Cards
+| Element | Description |
+|---------|-------------|
+| **Title** | Post set name (e.g., "Ai Impact Seo Strategies") |
+| **Platform Icons** | LinkedIn, X, etc. – shows which platforms have posts |
+| **Post Count** | "3 posts", "21 posts", etc. |
+| **Source URL** | Link icon + domain (e.g., iriscale.com) |
+| **Tags** | Hashtag pills (e.g., #AI, #SEO, #DigitalMarketing) with "+N" overflow |
+| **Date** | Creation date |
+| **Open →** | Link to post set detail page |
+| **Delete** | Trash icon button per card |
+
+---
+
+## Page Layout – Create Social Posts (Wizard)
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│ ← Back to Posts                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Create Social Posts  [Beta]              No platform yet | Connected: X │
+│ Stay on-brand and generate ready-to-review social drafts from any link │
+├─────────────────────────────────────────────────────────────────────────┤
+│ 1. Content                                              REQUIRED       │
+│    Content URL *        Post set name *                                │
+│ ────────────────────────────────────────────────────────────────────── │
+│ 2. Platforms   ⓘ Choose one or more channels                          │
+│    [LinkedIn] [X] [Facebook] [Instagram] [TikTok] [YouTube]           │
+│    Connected: None                                                     │
+│ ────────────────────────────────────────────────────────────────────── │
+│ ▶ 3. Options                                                           │
+│ ▶ Advanced (KPI, brand voice, emoji settings)                          │
+│ ────────────────────────────────────────────────────────────────────── │
+│ [Cancel]                     [🚀 Generate Posts]                       │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Step 1: Content (Required)
+| Field | Description |
+|-------|-------------|
+| **Content URL** | Paste article, landing page, or resource URL; AI pulls page context |
+| **Post set name** | Descriptive name; autocomplete to reuse earlier post sets |
+
+### Step 2: Platforms
+| Platform | Status |
+|----------|--------|
+| **LinkedIn** | Available (linked/not linked indicator) |
+| **X** | Available |
+| **Facebook** | Available |
+| **Instagram** | Available |
+| **TikTok** | Available |
+| **YouTube** | Available |
+
+### Step 3: Options (Expandable)
+| Field | Description |
+|-------|-------------|
+| **Intent preset** | Dropdown: Promote, Educate, Announce, Launch, Nurture, Engage |
+| **Additional instructions** | Free text for custom AI guidance |
+| **Click-through URL** | Custom landing page (defaults to content URL) |
+| **Tags** | Optional, max 8; autocomplete, auto-normalized to lowercase-with-hyphens |
+
+### Advanced (Expandable)
+| Field | Description |
+|-------|-------------|
+| **Target KPI** | None (Auto-select), CTR, Engagement Rate, Reach, Impressions, Conversions, Shares, Comments, Saves, Lead Generation |
+| **Tone** | Adaptive (auto-detect), Professional, Casual, Enthusiastic, Educational, Conversational |
+| **Emoji flair** | Toggle switch – "Let AI sprinkle light emojis when relevant" |
+| **UTM Medium** | Auto-filled; adjustable (default: "social") |
+
+---
+
+## Page Layout – Post Set Detail/Review
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│ ← Back to Posts                                                         │
+├──────────────────────────────────────────┬──────────────────────────────┤
+│ Post Set Title  [Completed]              │ [All platforms] [LinkedIn]   │
+│ 🔗 Source  3 posts                       │                              │
+│ CREATED: Feb 27  UPDATED: Feb 27         │                              │
+│ ✏️ Edit tags                              │                              │
+├──────────────────────────────────────────┤                              │
+│ [☐ Select all]  3 visible  [Approve][Sch]│  ┌────────────────────────┐ │
+├──────────────────────────────────────────┤  │   LinkedIn Preview     │ │
+│ ☐ [in] LinkedIn  Draft                   │  │   Your Company         │ │
+│ Created/Updated timestamps  Copy|Edit|Vie│  │   Promoted             │ │
+│ ┌──────────────────────────────────────┐ │  │                        │ │
+│ │ [Image] 🚀 Ready to transform...     │ │  │   [Post content...]    │ │
+│ │ Pattern: AIDA                        │ │  │                        │ │
+│ │ [Full post text with hashtags...]    │ │  │   [Image]              │ │
+│ │ platform:linkedin    453/3000        │ │  │                        │ │
+│ │ UTM URL: https://...  [Copy] [Edit]  │ │  │   Like Comment Share   │ │
+│ └──────────────────────────────────────┘ │  └────────────────────────┘ │
+│                                          │                              │
+│ ☐ [in] LinkedIn  Draft                   │                              │
+│ [Next post...]                           │                              │
+└──────────────────────────────────────────┴──────────────────────────────┘
+```
+
+### Post Set Header
+| Element | Description |
+|---------|-------------|
+| **Title** | Post set name with status badge (Completed / Draft) |
+| **Platform Filter** | "All platforms" / individual platform buttons |
+| **Source** | Link to original content URL |
+| **Post Count** | Total posts in set |
+| **Timestamps** | Created and Updated dates |
+| **Edit Tags** | Button to modify post set tags |
+
+### Bulk Actions Bar
+| Element | Description |
+|---------|-------------|
+| **Select all** | Checkbox to select all visible posts |
+| **Visible count** | "3 visible" indicator |
+| **Approve** | Bulk approve selected posts (disabled until selection) |
+| **Schedule** | Bulk schedule selected posts (disabled until selection) |
+
+### Individual Post Cards
+| Element | Description |
+|---------|-------------|
+| **Checkbox** | Selection for bulk actions |
+| **Platform Badge** | LinkedIn, X, etc. |
+| **Status** | "draft" badge |
+| **Timestamps** | Created / Updated dates |
+| **Copy** | Copy post content to clipboard |
+| **Edit** | Open inline editor |
+| **View** | Preview post |
+| **Post Image** | AI-generated image thumbnail |
+| **Headline** | Bold opening line of post |
+| **Pattern** | Writing pattern used (e.g., "AIDA: Attention → Interest → Desire → Action") |
+| **Full Text** | Complete post content with hashtags |
+| **Platform Tag** | "platform:linkedin" indicator |
+| **Character Count** | "453/3000" (used/max for platform) |
+| **UTM URL** | Auto-generated tracking URL with Copy UTM and Edit UTM buttons |
+
+### Preview Panel (Right Side)
+| Element | Description |
+|---------|-------------|
+| **Platform Mockup** | Realistic LinkedIn/X/etc. post preview |
+| **Company Info** | "Your Company" + "Promoted" label |
+| **Post Content** | Full post text as it would appear |
+| **Media** | Post image preview |
+| **Engagement Buttons** | Like, Comment, Share, Send (non-functional mockup) |
 
 ---
 
 ## Supported Platforms
 
-| Platform | Content Types |
-|----------|---------------|
-| **Facebook** | Pages, Groups, Ads Manager |
-| **Instagram** | Posts, Stories, Reels |
-| **X (Twitter)** | Tweets, Threads, Spaces |
-| **LinkedIn** | Posts, Articles, Company Updates |
-| **TikTok** | Videos, Live, Ads |
-| **YouTube** | Videos, Shorts, Live Streaming |
-| **Reddit** | Posts, Comments, Communities |
+| Platform | Available |
+|----------|-----------|
+| **LinkedIn** | ✅ |
+| **X (Twitter)** | ✅ |
+| **Facebook** | ✅ |
+| **Instagram** | ✅ |
+| **TikTok** | ✅ |
+| **YouTube** | ✅ |
 
 ---
 
@@ -103,12 +229,16 @@ Social Media Posts is an AI-powered social content generator that creates platfo
 
 | Capability | Description |
 |------------|-------------|
-| **AI Content Generation** | Platform-optimized posts |
-| **Campaign Management** | Organize by campaign/sub-campaign |
-| **Strategy Auto-Population** | Pull from Knowledge Base |
-| **Multi-Platform** | 7 social platforms supported |
-| **Real-Time Preview** | Mobile mockup preview |
-| **KPI Targeting** | Optimize for specific metrics |
+| **AI Content Generation** | Platform-optimized posts with pattern indicators (AIDA, etc.) |
+| **Post Sets** | Organize related posts into named, tagged, searchable sets |
+| **Multi-Step Wizard** | Clean 3-step creation: Content → Platforms → Options/Advanced |
+| **Bulk Actions** | Select all, approve, schedule multiple posts at once |
+| **UTM Tracking** | Auto-generated UTM URLs per platform with edit capability |
+| **Platform Preview** | Real-time LinkedIn/X mockup preview |
+| **Tag Management** | Filter and search post sets by tags |
+| **Multi-Platform** | 6 social platforms supported |
+| **KPI Targeting** | Optimize for specific metrics (CTR, Engagement, Conversions, etc.) |
+| **Tone Control** | Professional, Casual, Enthusiastic, Educational, Conversational |
 
 ---
 
@@ -116,7 +246,9 @@ Social Media Posts is an AI-powered social content generator that creates platfo
 
 | Screenshot | Description |
 |------------|-------------|
-| `social_posts_main.png` | Main post generation interface |
+| `social_posts_main.png` | Post sets list view with cards |
+| `social_posts_create.png` | Create wizard with Content, Platforms, Options steps |
+| `social_posts_detail.png` | Post set detail/review with individual posts and LinkedIn preview |
 
 ---
 
@@ -125,4 +257,11 @@ Social Media Posts is an AI-powered social content generator that creates platfo
 - [Social Scheduler](./social_scheduler.md) - Schedule generated posts
 - [Connections](./connections.md) - Platform connections
 - [Content Architecture](./content_architecture.md) - Content source
+
+---
+
+*Reassessed by: Cascade*  
+*Date: March 1, 2026*  
+*Version: 2.0 (Complete UI rework)*  
+*Context: Iriscale → Iriscale GTM v0.3*
 

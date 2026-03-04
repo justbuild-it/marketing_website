@@ -29,10 +29,11 @@
 | # | Screen/Feature | Location/Path | Documented | Screenshots | Training | Video | Marketing | Promo |
 |---|----------------|---------------|------------|-------------|----------|-------|-----------|-------|
 | 7 | Knowledge Base | `/projects/{id}/manage` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 7a | Knowledge Base - Internal Section | `/projects/{id}/manage` (left panel) | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
-| 7b | Branding Guidelines | `/projects/{id}/manage` (Internal) | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
-| 7c | Brand Voice & Writing Guidelines | `/projects/{id}/manage` (Internal) | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
+| 7a | Knowledge Base - Internal Section | `/projects/{id}/manage` (left panel) | ✅ | ✅ | ⬜ | ⬜ | ⬜ | ⬜ |
+| 7b | Branding Guidelines | `/projects/{id}/manage` (Internal) | ✅ | ✅ | ⬜ | ⬜ | ✅ | ⬜ |
+| 7c | Brand Voice & Writing Guidelines | `/projects/{id}/manage` (Internal) | ✅ | ✅ | ⬜ | ⬜ | ✅ | ⬜ |
 | 8 | Keyword Repository | `/projects/{id}/keywords` | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ |
+| 8a | Priority & Priority Score (NEW) | `/projects/{id}/keywords` | ✅ | ✅ | ⬜ | ⬜ | ✅ | ⬜ |
 | 9 | Search Ranking | `/projects/{id}/search-ranking` | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ |
 | 10 | Competitor Analysis | `/projects/{id}/competitor-analysis` | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ |
 | 10a | Competitor Analysis - Battle Card (Section 8) | `/projects/{id}/competitor-analysis` | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
@@ -44,7 +45,9 @@
 | 15 | AI Optimization Answers | `/projects/{id}/aio-answers` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | 16 | Opportunity Agent | `/projects/{id}/opportunity-agent` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | 16a | Blog Article Recommendations | `/projects/{id}/opportunities/{id}` | ✅ | ⬜ | ⬜ | ⬜ | ✅ | ⬜ |
-| 17 | Social Posts | `/projects/{id}/socials` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| 17 | Social Posts (REWORKED) | `/projects/{id}/socials` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| 17a | Social Posts - Create Wizard | `/projects/{id}/socials/create` | ✅ | ✅ | ⬜ | ⬜ | ⬜ | ⬜ |
+| 17b | Social Posts - Post Set Review | `/projects/{id}/socials/review` | ✅ | ✅ | ⬜ | ⬜ | ⬜ | ⬜ |
 | 18 | Social Scheduler | `/social-scheduler` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | 19 | Connections | `/connections` | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 
@@ -81,7 +84,7 @@
 │   │   └── Competitor Analysis
 │   ├── STRATEGY & PLANNING
 │   │   ├── Content Architecture
-│   │   ├── Topics
+│   │   ├── Topic Strategy
 │   │   └── AI Optimization Questions
 │   ├── CONTENT CREATION
 │   │   ├── Articles
@@ -168,6 +171,28 @@ Can be documented after initial release:
   - AI-generates blog/article ideas from real-time social conversations
   - Includes: Topic, Target Audience, Primary Problem, Key Takeaways, Suggested Sections, Evidence, Company Expertise Angle
 
+### March 2026 Reassessment
+- **Keyword Repository** — Major update:
+  - New AI-generated **Priority** column (P1/P2/P3/Unprioritized)
+  - New **Priority Score** column (0–1) with hover tooltip showing AI relevancy reasoning
+  - New **AI Questions** column replacing previous approach
+  - Removed columns: Primary, Category
+  - New hidden columns: High Bid, Low Bid, SE Type, Language, Created At
+  - Keywords processed through priority pipeline are **auto-approved**
+  - Total keywords: 332 (Iriscale GTM v0.3 project)
+- **Knowledge Base** — Internal section confirmed and updated:
+  - Brand Voice & Writing Guidelines: Writer's Quick Reference Guide with Iriscale voice pillars
+  - Branding Guidelines: Full brand documentation with Iriscale colors, typography, visual assets
+  - Both documents are AI-generated and editable; used by AI agents for content/image generation
+- **Social Posts** — Complete UI rework:
+  - Old 3-panel layout replaced with multi-page post sets architecture
+  - New **Post Sets list** with card-based view, tag filtering, search
+  - New **Create wizard** (3-step: Content → Platforms → Options/Advanced)
+  - New **Post Set detail/review** page with bulk approve/schedule, UTM tracking, platform preview
+  - 6 platforms supported (LinkedIn, X, Facebook, Instagram, TikTok, YouTube) — Reddit removed
+  - New capabilities: UTM auto-generation, writing pattern indicators (AIDA, etc.), tone control
+- Screenshots updated for all three features
+
 ---
 
-*Last Updated: January 30, 2026*
+*Last Updated: March 1, 2026*
